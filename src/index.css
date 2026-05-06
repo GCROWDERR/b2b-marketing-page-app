@@ -1,0 +1,144 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * Bankrate marketing theme: Shadcn semantics + extras
+ * Tokens live outside @layer base so dev/build always emit them (inverse strips
+ * rely on --surface-inverse*; inside @layer base they can fail to load in Vite).
+ */
+:root {
+  --font-heading: "Playfair Display", Georgia, serif;
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+  --background: #f5f2eb;
+  --foreground: #13223b;
+
+  --card: #ffffff;
+  --card-foreground: #13223b;
+  --popover: #ffffff;
+  --popover-foreground: #13223b;
+
+  --primary: #0061fe;
+  --primary-foreground: #ffffff;
+
+  --secondary: #f2f7ff;
+  --secondary-foreground: #13223b;
+
+  --muted: #f2f7ff;
+  --muted-foreground: #4c5d78;
+
+  --accent: #e8edf5;
+  --accent-foreground: #13223b;
+
+  --destructive: oklch(0.577 0.245 27.325);
+
+  --border: #e7e5df;
+  --input: #e7e5df;
+  --ring: #0061fe;
+
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+
+  --radius: 0.625rem;
+  --radius-md: 0.625rem;
+
+  --sidebar: #f5f2eb;
+  --sidebar-foreground: #13223b;
+  --sidebar-primary: #0061fe;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f2f7ff;
+  --sidebar-accent-foreground: #13223b;
+  --sidebar-border: #e7e5df;
+  --sidebar-ring: #0061fe;
+
+  --surface-inverse: #0f1b2f;
+  --surface-inverse-foreground: #ffffff;
+  --surface-inverse-foreground-soft: #f5f2eb;
+  --surface-inverse-border: #1f3354;
+  --surface-inverse-input: #13223b;
+
+  --tone-positive: #7ad595;
+  --tone-positive-strong: #498059;
+  --tone-positive-muted: #def5e5;
+  --tone-warn: #fbd772;
+  --tone-purple: #a8a8e8;
+
+  --feature-soft-blue: #f0f4ff;
+
+  --gradient-editorial-from: #13223b;
+  --gradient-editorial-to: #0f1b2f;
+
+  --journey-panel-gradient: linear-gradient(
+    180deg,
+    rgb(220, 231, 254) 0%,
+    rgb(210, 224, 252) 100%
+  );
+}
+
+.dark {
+  --background: #0f1b2f;
+  --foreground: #f5f2eb;
+  --card: #13223b;
+  --card-foreground: #f5f2eb;
+  --popover: #13223b;
+  --popover-foreground: #f5f2eb;
+  --primary: #5a9cff;
+  --primary-foreground: #0f1b2f;
+  --secondary: #1f3354;
+  --secondary-foreground: #f5f2eb;
+  --muted: #1f3354;
+  --muted-foreground: #b8c0d0;
+  --accent: #1f3354;
+  --accent-foreground: #f5f2eb;
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: rgb(255 255 255 / 12%);
+  --input: rgb(255 255 255 / 15%);
+  --ring: #5a9cff;
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: #0f1b2f;
+  --sidebar-foreground: #f5f2eb;
+  --sidebar-primary: #5a9cff;
+  --sidebar-primary-foreground: #0f1b2f;
+  --sidebar-accent: #1f3354;
+  --sidebar-accent-foreground: #f5f2eb;
+  --sidebar-border: rgb(255 255 255 / 12%);
+  --sidebar-ring: #5a9cff;
+
+  --surface-inverse: #050a14;
+  --surface-inverse-foreground: #ffffff;
+  --surface-inverse-foreground-soft: #f5f2eb;
+  --surface-inverse-border: #1f3354;
+  --surface-inverse-input: #13223b;
+
+  --feature-soft-blue: #1a2848;
+
+  --gradient-editorial-from: #1e3a66;
+  --gradient-editorial-to: #0f1b2f;
+
+  --journey-panel-gradient: linear-gradient(
+    180deg,
+    #1a2d4d 0%,
+    #15243d 100%
+  );
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
