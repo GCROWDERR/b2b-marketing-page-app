@@ -19,7 +19,7 @@ const heroCtaArrow = (
 
 export function MarketingHero() {
   return (
-    <section className="relative z-0 -mt-[82px] min-h-[810px] w-full overflow-x-clip overflow-y-visible bg-surface-inverse">
+    <section className="relative z-0 -mt-[82px] min-h-[810px] w-full overflow-hidden bg-surface-inverse">
       <div className="relative z-[10] mx-auto min-h-[810px] max-w-[1440px] px-8 pb-16 pt-[calc(6rem+82px)] lg:px-16 lg:pb-16 lg:pt-[calc(112px+82px)]">
         {/* Left column — Figma 45:203, max 646px */}
         <div className="relative flex w-full max-w-[646px] flex-col gap-8">
