@@ -19,7 +19,7 @@ const heroCtaArrow = (
 
 export function MarketingHero() {
   return (
-    <section className="relative z-0 -mt-[82px] min-h-[810px] w-full overflow-hidden bg-surface-inverse">
+    <section className="relative z-0 -mt-[82px] min-h-[810px] w-full overflow-x-clip overflow-y-visible bg-surface-inverse">
       <div className="relative z-[10] mx-auto min-h-[810px] max-w-[1440px] px-8 pb-16 pt-[calc(6rem+82px)] lg:px-16 lg:pb-16 lg:pt-[calc(112px+82px)]">
         {/* Left column — Figma 45:203, max 646px */}
         <div className="relative flex w-full max-w-[646px] flex-col gap-8">
@@ -75,14 +75,16 @@ export function MarketingHero() {
         </div>
       </div>
 
-      {/* Right column — full-bleed from viewport; scales on ultra-wide so art fills right side */}
+      {/* Right column — slide to viewport edge on wide screens (scale grew left, not into the margin) */}
       <div
         className={cn(
           "pointer-events-none absolute top-0 z-0 hidden min-[1180px]:block",
-          "h-[974px] w-[767px] origin-top-right",
-          "right-[max(2rem,calc((100vw-1440px)/2))]",
-          "[transform:scale(clamp(1,calc((767px+max(0px,(100vw-1440px)/2))/767),1.45))]"
+          "h-[974px] w-[767px]",
+          "right-[max(2rem,calc((100vw-1440px)/2))]"
         )}
+        style={{
+          transform: "translateX(calc(max(0px, (100vw - 1440px) / 2)))",
+        }}
       >
         <div className="absolute top-[-43px] right-0 h-[974px] w-[767px]">
           <img
