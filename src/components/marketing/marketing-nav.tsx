@@ -1,10 +1,12 @@
 import { ChevronDown, Search } from "lucide-react";
+import { Link } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 import { IMG } from "./assets";
 import { MarketingPrimaryLink } from "./marketing-buttons";
+import { cn } from "@/lib/utils";
 
 const navLinkClass =
   "flex items-center gap-0.5 text-[15px] font-semibold tracking-tight text-surface-inverse-fg hover:text-surface-inverse-fg/90";
@@ -13,7 +15,7 @@ export function MarketingNav() {
   return (
     <nav className="sticky top-0 z-[100] w-full border-b border-surface-inverse-border bg-surface-inverse">
       <div className="mx-auto flex h-[82px] max-w-[1440px] items-center justify-between px-8 lg:px-16">
-        <a href="#" className="w-44 shrink-0">
+        <Link to="/" className="w-44 shrink-0">
           <img
             src={IMG.logo}
             alt="Bankrate"
@@ -21,7 +23,7 @@ export function MarketingNav() {
             width={176}
             height={27}
           />
-        </a>
+        </Link>
         <div className="hidden items-center gap-8 xl:flex">
           <a href="#" className={navLinkClass}>
             Mortgages
@@ -35,6 +37,9 @@ export function MarketingNav() {
             B2B Partnerships
             <ChevronDown className="size-2.5 opacity-70" aria-hidden />
           </a>
+          <Link to="/enterprise" className={navLinkClass}>
+            Enterprise
+          </Link>
           <a href="#" className={navLinkClass}>
             Loans
             <ChevronDown className="size-2.5 opacity-70" aria-hidden />
@@ -45,6 +50,12 @@ export function MarketingNav() {
           </a>
         </div>
         <div className="flex items-center gap-2">
+          <Link
+            to="/enterprise"
+            className={cn(navLinkClass, "mr-1 shrink-0 xl:hidden")}
+          >
+            Enterprise
+          </Link>
           <MarketingPrimaryLink showArrow href="#">
             Sign up / Log in
           </MarketingPrimaryLink>
