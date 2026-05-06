@@ -81,9 +81,10 @@ export const IMG = {
   partner2: "https://www.figma.com/api/mcp/asset/1eaa639c-e951-4494-ab11-ecba592cd08e",
   partner3: "https://www.figma.com/api/mcp/asset/ed09caa2-4cb1-4eaf-b63b-c3d8dc204b9a",
   partner4: "https://www.figma.com/api/mcp/asset/2ae3cd66-2833-49d4-9b46-f78b70bbe9c3",
-  bullet1: "https://www.figma.com/api/mcp/asset/8a3ae795-57a3-4887-9f42-6127f887470a",
-  bullet2: "https://www.figma.com/api/mcp/asset/057caebc-32a4-4cf7-85b1-1866c4b3c415",
-  bullet3: "https://www.figma.com/api/mcp/asset/efbf83d2-f5a1-488d-9db0-9baad70b7533",
+  /** List bullets — B2B-Marketing-Page Figma node 45:680 (layered arrow icons) */
+  bullet1: "https://www.figma.com/api/mcp/asset/ab36e070-ecfe-4082-9135-3e0168e6459f",
+  bullet2: "https://www.figma.com/api/mcp/asset/bc966950-c6a7-46b3-a94e-397728abd56c",
+  bullet3: "https://www.figma.com/api/mcp/asset/10208025-eece-4fa0-84bb-012473432863",
   partnerCta: "https://www.figma.com/api/mcp/asset/0942a66f-0608-47c4-a559-137a2b3d4000",
   footerSubmit: "https://www.figma.com/api/mcp/asset/a335eb80-0d2b-440a-9bd4-02af0290199d",
   footerLogo: "https://www.figma.com/api/mcp/asset/7fb1668e-db4c-434d-87d7-3806b6156d1b",

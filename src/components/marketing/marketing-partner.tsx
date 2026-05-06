@@ -69,8 +69,8 @@ export function MarketingPartner() {
                 icon: IMG.bullet1,
                 body: (
                   <>
-                    <strong>Qualified Reach:</strong> Access over 25 million
-                    high-intent monthly users.
+                    <span className="font-bold">Qualified Reach: </span>
+                    Access over 25 million high-intent monthly users.
                   </>
                 ),
               },
@@ -78,9 +78,9 @@ export function MarketingPartner() {
                 icon: IMG.bullet2,
                 body: (
                   <>
-                    <strong>Data-Driven Matchmaking:</strong> Use our 50 years
-                    of market intelligence to find the right customers for your
-                    specific products.
+                    <span className="font-bold">Data-Driven Matchmaking:</span>{" "}
+                    Use our 50 years of market intelligence to find the right
+                    customers for your specific products.
                   </>
                 ),
               },
@@ -88,17 +88,29 @@ export function MarketingPartner() {
                 icon: IMG.bullet3,
                 body: (
                   <>
-                    <strong>Trusted Integration:</strong> Join a marketplace
-                    cited by the Federal Reserve and top-tier financial media.
+                    <span className="font-bold">Trusted Integration:</span> Join
+                    a marketplace cited by the Federal Reserve and top-tier
+                    financial media.
                   </>
                 ),
               },
             ].map((item, i) => (
-              <div key={i} className="flex gap-3 text-lg leading-snug text-foreground">
-                <span className="mt-1 w-4 shrink-0">
-                  <img src={item.icon} alt="" className="w-full" />
+              <div
+                key={i}
+                className="flex items-start gap-3 text-lg leading-[1.4] text-foreground"
+              >
+                <span className="mt-[5px] flex size-[18px] shrink-0 items-center justify-center">
+                  <span className="inline-flex rotate-[90.32deg]">
+                    <img
+                      src={item.icon}
+                      alt=""
+                      className="block h-auto w-[15px] max-w-none"
+                      width={15}
+                      height={15}
+                    />
+                  </span>
                 </span>
-                <p>{item.body}</p>
+                <p className="min-w-0 flex-1">{item.body}</p>
               </div>
             ))}
           </div>

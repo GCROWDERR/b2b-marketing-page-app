@@ -1,22 +1,39 @@
+import type { ReactNode } from "react";
+
 import { IMG } from "./assets";
 
-const items = [
+const items: { icon: string; content: ReactNode }[] = [
   {
     icon: IMG.bullet1,
-    title: "Qualified Reach.",
-    body: "Tap into an audience of active shoppers looking for their best financial fit.",
+    content: (
+      <>
+        <span className="font-bold">Qualified Reach: </span>
+        Tap into an audience of active shoppers looking for their best financial
+        fit.
+      </>
+    ),
   },
   {
     icon: IMG.bullet2,
-    title: "Seamless Integration.",
-    body: "From white-label portals to embedded APIs, we offer deployment that keeps your internal lift low.",
+    content: (
+      <>
+        <span className="font-bold">Seamless Integration: </span>
+        From white-label portals to embedded APIs, we offer deployment that
+        keeps your internal lift low.
+      </>
+    ),
   },
   {
     icon: IMG.bullet3,
-    title: "Data-Driven Matching.",
-    body: "Use our proprietary intelligence to identify and acquire high-lifetime-value customers.",
+    content: (
+      <>
+        <span className="font-bold">Data-Driven Matching: </span>
+        Use our proprietary intelligence to identify and acquire
+        high-lifetime-value customers.
+      </>
+    ),
   },
-] as const;
+];
 
 export function MarketingEnterpriseBenefits() {
   return (
@@ -30,25 +47,28 @@ export function MarketingEnterpriseBenefits() {
             Why Partner with Bankrate
           </h2>
         </div>
-        <div className="min-w-0 flex-1 space-y-8">
-          {items.map((item) => (
-            <div
-              key={item.title}
-              className="flex gap-4 border-b border-border pb-8 last:border-b-0 last:pb-0"
-            >
-              <span className="mt-1 w-4 shrink-0">
-                <img src={item.icon} alt="" className="w-full" />
-              </span>
-              <div>
-                <p className="text-lg font-bold leading-snug text-foreground">
-                  {item.title}
-                </p>
-                <p className="mt-2 text-lg leading-snug text-foreground">
-                  {item.body}
-                </p>
+        <div className="min-w-0 flex-1">
+          <div className="flex max-w-[580px] flex-col gap-4">
+            {items.map((item, i) => (
+              <div
+                key={i}
+                className="flex items-start gap-3 text-lg leading-[1.4] text-foreground"
+              >
+                <span className="mt-[5px] flex size-[18px] shrink-0 items-center justify-center">
+                  <span className="inline-flex rotate-[90.32deg]">
+                    <img
+                      src={item.icon}
+                      alt=""
+                      className="block h-auto w-[15px] max-w-none"
+                      width={15}
+                      height={15}
+                    />
+                  </span>
+                </span>
+                <p className="min-w-0 flex-1">{item.content}</p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>
