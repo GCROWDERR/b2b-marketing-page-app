@@ -34,13 +34,6 @@ export function MarketingNav() {
             <ChevronDown className="size-2.5 opacity-70" aria-hidden />
           </a>
           <a href="#" className={navLinkClass}>
-            B2B Partnerships
-            <ChevronDown className="size-2.5 opacity-70" aria-hidden />
-          </a>
-          <Link to="/enterprise" className={navLinkClass}>
-            Enterprise
-          </Link>
-          <a href="#" className={navLinkClass}>
             Loans
             <ChevronDown className="size-2.5 opacity-70" aria-hidden />
           </a>
@@ -49,11 +42,8 @@ export function MarketingNav() {
             <ChevronDown className="size-2.5 opacity-70" aria-hidden />
           </a>
         </div>
-        <div className="flex items-center gap-2">
-          <Link
-            to="/enterprise"
-            className={cn(navLinkClass, "mr-1 shrink-0 xl:hidden")}
-          >
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link to="/partners" className={cn(navLinkClass, "mr-1 shrink-0 whitespace-nowrap")}>
             Enterprise
           </Link>
           <MarketingPrimaryLink showArrow href="#">
