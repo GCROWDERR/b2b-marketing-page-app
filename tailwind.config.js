@@ -106,6 +106,8 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        "button-sm": "var(--button-radius-sm)",
+        "button-lg": "var(--button-radius-lg)",
         "2.5xl": "1.25rem",
         "3.5xl": "2.125rem",
       },

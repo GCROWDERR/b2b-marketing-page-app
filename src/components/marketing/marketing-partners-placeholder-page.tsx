@@ -1,11 +1,9 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ChevronRight } from "lucide-react";
 
-import { buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
-import { MarketingFooter } from "./marketing-footer";
+import { DispatchFooter } from "@/components/dispatch/footer";
 import { MarketingNav } from "./marketing-nav";
 
 type MarketingPartnersPlaceholderPageProps = {
@@ -47,20 +45,18 @@ export function MarketingPartnersPlaceholderPage({
             >
               {description}
             </p>
-            <Link
-              to="/partners"
-              className={cn(
-                buttonVariants({ variant: "default", size: "lg" }),
-                "mt-10 inline-flex h-12 items-center justify-center gap-2 rounded-[10px] border-0 bg-primary px-6 text-[15px] font-semibold tracking-[-0.15px] text-primary-foreground shadow-none hover:bg-primary/90 hover:no-underline"
-              )}
+            <Button
+              variant="primary"
+              size="lg"
+              className="mt-10 h-12 px-6 text-[15px] font-semibold tracking-[-0.15px]"
+              asChild
             >
-              Back to partnership paths
-              <ChevronRight className="size-4 rotate-180 shrink-0" aria-hidden />
-            </Link>
+              <Link to="/partners">Back to partnership paths</Link>
+            </Button>
           </div>
         </section>
       </div>
-      <MarketingFooter />
+      <DispatchFooter />
     </div>
   );
 }

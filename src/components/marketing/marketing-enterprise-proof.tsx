@@ -1,7 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
 
-import { IMG } from "./assets";
-
 export function MarketingEnterpriseProof() {
   return (
     <section className="bg-background px-8 pt-16 pb-12 lg:px-[175px]">
@@ -43,13 +41,7 @@ export function MarketingEnterpriseProof() {
               <div className="flex h-[84px] w-full shrink-0 items-center justify-center rounded-[14px] bg-muted p-3 sm:h-full sm:min-h-[84px] sm:w-[126px]">
                 <div className="relative flex items-start font-display text-[40px] leading-[1.2] tracking-[-2.3569px] text-primary">
                   3,000
-                  <img
-                    src={IMG.statPlus}
-                    alt="+"
-                    className="ml-0.5 mt-[18px] h-[17px] w-[17px]"
-                    width={17}
-                    height={17}
-                  />
+                  <span className="ml-0.5 mt-[18px] text-[17px] leading-none">+</span>
                 </div>
               </div>
               <p className="flex-1 text-base font-bold leading-[1.4] text-foreground">

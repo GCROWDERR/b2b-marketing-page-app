@@ -1,21 +1,8 @@
-import { buttonVariants } from "@/components/ui/button";
+import { Button, dispatchHeroButtonRadiusClass } from "@/components/ui/button";
+import { FlourishUnderline } from "@/components/ui/flourish";
 import { cn } from "@/lib/utils";
 
 import { IMG } from "./assets";
-
-const heroCtaArrow = (
-  <span className="flex size-4 shrink-0 items-center justify-center">
-    <span className="inline-flex rotate-180">
-      <img
-        src={IMG.heroBtnArrow}
-        alt=""
-        className="h-4 w-[16px] max-w-none object-contain"
-        width={16}
-        height={16}
-      />
-    </span>
-  </span>
-);
 
 export function MarketingHero() {
   return (
@@ -28,16 +15,9 @@ export function MarketingHero() {
               <p className="leading-[1.1]">Your bank has a</p>
               <p className="relative leading-[1.1]">
                 mortgage rate. We have a better{" "}
-                <span className="relative inline-block whitespace-nowrap">
+                <FlourishUnderline className="whitespace-nowrap" underlineWidth={179}>
                   one.
-                  <img
-                    src={IMG.heroHeadlineUnderline}
-                    alt=""
-                    className="pointer-events-none absolute top-[calc(100%-4px)] left-0 h-1.5 w-[179px] max-w-[min(179px,calc(100vw-4rem))] object-contain object-left opacity-95"
-                    width={179}
-                    height={6}
-                  />
-                </span>
+                </FlourishUnderline>
               </p>
             </h1>
             <p
@@ -51,26 +31,31 @@ export function MarketingHero() {
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <a
-              href="#"
+            <Button
+              variant="primary"
+              size="lg"
+              arrow
               className={cn(
-                buttonVariants({ variant: "default", size: "lg" }),
-                "inline-flex h-12 shrink-0 items-center justify-center gap-2 rounded-[10px] border-0 bg-primary px-5 text-[15px] font-semibold tracking-[-0.15px] text-primary-foreground shadow-none hover:bg-primary/90 hover:no-underline"
+                dispatchHeroButtonRadiusClass,
+                "h-12 shrink-0 px-5 text-[15px] font-semibold tracking-[-0.15px]"
               )}
+              asChild
             >
-              Unlock my personal dashboard
-              {heroCtaArrow}
-            </a>
-            <a
-              href="#"
+              <a href="#">Unlock my personal dashboard</a>
+            </Button>
+            <Button
+              variant="outline"
+              color="white"
+              size="lg"
+              arrow
               className={cn(
-                buttonVariants({ variant: "outline", size: "lg" }),
-                "inline-flex h-12 w-full max-w-[254px] shrink-0 items-center justify-center gap-2 rounded-[10px] border border-primary bg-transparent px-5 text-[15px] font-semibold tracking-[-0.15px] text-surface-inverse-fg shadow-none hover:bg-surface-inverse-fg/10 hover:text-surface-inverse-fg hover:no-underline sm:w-[254px]"
+                dispatchHeroButtonRadiusClass,
+                "h-12 w-full max-w-[254px] shrink-0 px-5 text-[15px] font-semibold tracking-[-0.15px] sm:w-[254px]"
               )}
+              asChild
             >
-              Just show me today&apos;s rates
-              {heroCtaArrow}
-            </a>
+              <a href="#">Just show me today&apos;s rates</a>
+            </Button>
           </div>
         </div>
       </div>

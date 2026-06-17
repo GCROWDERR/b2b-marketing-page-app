@@ -3,10 +3,11 @@ import { useEffect } from "react";
 import { MarketingEnterpriseIntegration } from "./marketing-enterprise-integration";
 import { MarketingEnterpriseMission } from "./marketing-enterprise-mission";
 import { MarketingEnterpriseProof } from "./marketing-enterprise-proof";
-import { MarketingFooter } from "./marketing-footer";
+import { DispatchFooter } from "@/components/dispatch/footer";
 import { MarketingNav } from "./marketing-nav";
 import { MarketingPartnersHubHero } from "./marketing-partners-hub-hero";
 import { MarketingPartnersPaths } from "./marketing-partners-paths";
+import { MarketingPartnersSalesForm } from "./marketing-partners-sales-form";
 
 export function MarketingPartnersHubPage() {
   useEffect(() => {
@@ -24,10 +25,11 @@ export function MarketingPartnersHubPage() {
         <MarketingPartnersHubHero />
       </div>
       <MarketingPartnersPaths />
+      <MarketingPartnersSalesForm />
       <MarketingEnterpriseProof />
       <MarketingEnterpriseIntegration />
       <MarketingEnterpriseMission />
-      <MarketingFooter />
+      <DispatchFooter />
     </div>
   );
 }

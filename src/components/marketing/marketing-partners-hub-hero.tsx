@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { buttonVariants } from "@/components/ui/button";
+import { Button, dispatchHeroButtonRadiusClass } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export function MarketingPartnersHubHero() {
@@ -20,17 +20,19 @@ export function MarketingPartnersHubHero() {
         </p>
 
         <div className="mt-10 flex w-full max-w-md flex-col items-center gap-5 sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-6">
-          <a
-            href="#partner-paths"
+          <Button
+            variant="primary"
+            size="lg"
             className={cn(
-              buttonVariants({ variant: "default", size: "lg" }),
-              "inline-flex h-12 w-full shrink-0 items-center justify-center rounded-[10px] border-0 bg-primary px-6 text-[15px] font-semibold tracking-[-0.15px] text-primary-foreground shadow-none hover:bg-primary/90 hover:no-underline sm:w-auto"
+              dispatchHeroButtonRadiusClass,
+              "h-12 w-full shrink-0 px-6 text-[15px] font-semibold tracking-[-0.15px] sm:w-auto"
             )}
+            asChild
           >
-            Choose a partnership path
-          </a>
+            <a href="#partner-paths">Choose a partnership path</a>
+          </Button>
           <Link
-            to="/enterprise"
+            to="/partners/lenders"
             className="text-[15px] font-semibold text-surface-inverse-fg underline decoration-surface-inverse-fg/40 underline-offset-[6px] transition-colors hover:text-surface-inverse-fg hover:decoration-surface-inverse-fg"
           >
             Lenders &amp; financial institutions overview

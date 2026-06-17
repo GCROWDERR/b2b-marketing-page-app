@@ -1,7 +1,7 @@
 import { MarketingApp, MarketingMission } from "./marketing-app-mission";
 import { MarketingEditorial } from "./marketing-editorial";
 import { MarketingFeatures } from "./marketing-features";
-import { MarketingFooter } from "./marketing-footer";
+import { DispatchFooter } from "@/components/dispatch/footer";
 import { MarketingHero } from "./marketing-hero";
 import { MarketingInsights } from "./marketing-insights";
 import { MarketingNav } from "./marketing-nav";
@@ -24,7 +24,7 @@ export function MarketingPage() {
       <MarketingMission />
       <MarketingFeatures />
       <MarketingPartner />
-      <MarketingFooter />
+      <DispatchFooter />
     </div>
   );
 }

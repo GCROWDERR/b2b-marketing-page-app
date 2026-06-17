@@ -133,18 +133,12 @@ function JourneyTabPanel({ journeyId }: { journeyId: JourneyId }) {
               />
               <Button
                 type="button"
-                className="h-12 shrink-0 gap-2 rounded-[10px] bg-primary px-5 text-[15px] font-semibold tracking-tight text-primary-foreground hover:bg-primary/90"
+                variant="primary"
+                size="lg"
+                arrow
+                className="h-12 shrink-0 px-5 text-[15px] font-semibold tracking-tight"
               >
                 Calculate
-                <span className="inline-flex rotate-180">
-                  <img
-                    src={IMG.journeyCalcArrow}
-                    alt=""
-                    className="size-4"
-                    width={16}
-                    height={16}
-                  />
-                </span>
               </Button>
             </div>
           </CardContent>

@@ -1,15 +1,17 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 
 import { MarketingEnterprisePage } from "@/components/marketing/marketing-enterprise-page";
-import { MarketingPage } from "@/components/marketing/marketing-page";
+import { MarketingEnterprisePartnersPage } from "@/components/marketing/marketing-enterprise-partners-page";
+import { MarketingLendersPage } from "@/components/marketing/marketing-lenders-page";
 import { MarketingPartnersHubPage } from "@/components/marketing/marketing-partners-hub-page";
 import { MarketingPartnersPlaceholderPage } from "@/components/marketing/marketing-partners-placeholder-page";
 
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<MarketingPage />} />
+      <Route path="/" element={<MarketingEnterprisePage />} />
       <Route path="/partners" element={<MarketingPartnersHubPage />} />
+      <Route path="/partners/lenders" element={<MarketingLendersPage />} />
       <Route
         path="/partners/affiliate"
         element={
@@ -21,7 +23,8 @@ export default function App() {
           />
         }
       />
-      <Route path="/enterprise" element={<MarketingEnterprisePage />} />
+      <Route path="/enterprise" element={<Navigate to="/" replace />} />
+      <Route path="/partners/enterprise" element={<MarketingEnterprisePartnersPage />} />
     </Routes>
   );
 }

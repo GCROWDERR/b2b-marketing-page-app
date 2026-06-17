@@ -1,5 +1,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "./components/ui/button/button.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -22,6 +23,25 @@
 
   --primary: #0061fe;
   --primary-foreground: #ffffff;
+  --destructive-foreground: #ffffff;
+
+  --color-white: #ffffff;
+  --color-blue-200: #dce7fe;
+  --color-blue-300: #a7c8ff;
+  --color-blue-800: #003d99;
+  --color-blue-900: #002966;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --leading-none: 1;
+  --letter-spacing-tighter: -0.015625rem;
+  --font-weight-bold: 700;
+  --tw-duration: 150ms;
+  --tw-ease: cubic-bezier(0.4, 0, 0.2, 1);
 
   --secondary: #f2f7ff;
   --secondary-foreground: #13223b;
@@ -46,6 +66,9 @@
 
   --radius: 0.625rem;
   --radius-md: 0.625rem;
+  --button-radius: 0.625rem;
+  --button-radius-sm: 0.5rem;
+  --button-radius-lg: calc(var(--button-radius-sm) * 1.4);
 
   --sidebar: #f5f2eb;
   --sidebar-foreground: #13223b;

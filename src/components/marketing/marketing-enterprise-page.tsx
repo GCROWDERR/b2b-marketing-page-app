@@ -1,17 +1,19 @@
 import { useEffect } from "react";
 
+import { DispatchFooter } from "@/components/dispatch/footer";
 import { MarketingEnterpriseBenefits } from "./marketing-enterprise-benefits";
 import { MarketingEnterpriseHero } from "./marketing-enterprise-hero";
+import { MarketingEnterpriseCaseStudies } from "./marketing-enterprise-case-studies";
+import { MarketingEnterpriseEthos } from "./marketing-enterprise-ethos";
 import { MarketingEnterpriseIntegration } from "./marketing-enterprise-integration";
-import { MarketingEnterpriseMission } from "./marketing-enterprise-mission";
-import { MarketingEnterpriseProof } from "./marketing-enterprise-proof";
-import { MarketingFooter } from "./marketing-footer";
+import { MarketingEnterpriseStatsStrip } from "./marketing-enterprise-stats-strip";
 import { MarketingNav } from "./marketing-nav";
+import { MarketingPartnersPaths } from "./marketing-partners-paths";
 
 export function MarketingEnterprisePage() {
   useEffect(() => {
     const previous = document.title;
-    document.title = "Bankrate B2B — Enterprise partnerships";
+    document.title = "Bankrate B2B — Partnerships";
     return () => {
       document.title = previous;
     };
@@ -19,15 +21,15 @@ export function MarketingEnterprisePage() {
 
   return (
     <div className="min-w-0 bg-background text-foreground antialiased">
-      <div className="relative">
-        <MarketingNav />
-        <MarketingEnterpriseHero />
-      </div>
-      <MarketingEnterpriseProof />
+      <MarketingNav />
+      <MarketingEnterpriseHero />
+      <MarketingPartnersPaths />
+      <MarketingEnterpriseStatsStrip />
       <MarketingEnterpriseBenefits />
       <MarketingEnterpriseIntegration />
-      <MarketingEnterpriseMission />
-      <MarketingFooter />
+      <MarketingEnterpriseCaseStudies />
+      <MarketingEnterpriseEthos />
+      <DispatchFooter />
     </div>
   );
 }

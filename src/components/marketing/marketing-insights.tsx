@@ -1,4 +1,4 @@
-import { buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 import { IMG } from "./assets";
@@ -159,24 +159,15 @@ export function MarketingInsights() {
       </div>
 
       {/* Figma 45:358 — CTA */}
-      <a
-        href="#"
-        className={cn(
-          buttonVariants({ variant: "default", size: "lg" }),
-          "inline-flex h-12 items-center justify-center gap-2 rounded-[10px] border-0 bg-primary px-5 text-[15px] font-semibold tracking-[-0.15px] text-primary-foreground shadow-none hover:bg-primary/90 hover:no-underline"
-        )}
+      <Button
+        variant="primary"
+        size="lg"
+        arrow
+        className="h-12 px-5 text-[15px] font-semibold tracking-[-0.15px]"
+        asChild
       >
-        Explore all expert insights
-        <span className="flex shrink-0 rotate-180">
-          <img
-            src={IMG.insightsCtaArrow}
-            alt=""
-            className="h-4 w-[16px] max-w-none object-contain"
-            width={16}
-            height={16}
-          />
-        </span>
-      </a>
+        <a href="#">Explore all expert insights</a>
+      </Button>
     </section>
   );
 }
