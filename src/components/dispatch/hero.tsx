@@ -12,17 +12,17 @@ import { cn } from "@/lib/utils";
 export function DispatchHero() {
   return (
     <section
-      className="flex items-center justify-center bg-[#f5f2eb] px-6 pb-6 pt-6 lg:px-12 lg:pb-10 lg:pt-6"
+      className="flex items-center justify-center bg-gray-100 px-6 pb-6 pt-6 lg:px-12 lg:pb-10 lg:pt-6"
       aria-label="Hero"
     >
-      <div className="relative flex w-full max-w-[1312px] flex-col gap-8 overflow-hidden rounded-2xl bg-[#13223b] px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:rounded-[56px] lg:px-16 lg:py-12">
+      <div className="relative flex w-full max-w-[1312px] flex-col gap-8 overflow-hidden rounded-2xl bg-blue-900 px-6 py-12 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:rounded-[56px] lg:px-16 lg:py-12">
         <div className="relative z-10 flex w-full flex-col gap-10 lg:max-w-[653px] lg:flex-1 lg:pb-6">
           <div className="relative flex flex-col gap-8 text-white">
             <h1 className="font-display text-[36px] font-semibold leading-[1.2] tracking-normal lg:text-[48px]">
               Partnership paths built for how you{" "}
               <CircledText ringBleed="2em">go to market</CircledText>.
             </h1>
-            <p className="max-w-[630px] text-[18px] leading-[1.4] text-[#f9f9fc]">
+            <p className="max-w-[630px] text-[18px] leading-[1.4] text-gray-50">
               Whether you lend on our marketplace, power a private audience, or monetize through
               affiliate, start here—we will route you to the right programs, integrations, and
               team.
@@ -48,7 +48,7 @@ export function DispatchHero() {
               className={cn(dispatchHeroButtonRadiusClass, "hidden h-11 lg:inline-flex")}
               asChild
             >
-              <Link to="/partners">Explore partner programs</Link>
+              <Link to="/#partner-paths">Explore partner programs</Link>
             </Button>
           </div>
         </div>

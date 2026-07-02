@@ -1,13 +1,11 @@
 import { useEffect } from "react";
 
-import { DispatchFooter } from "@/components/dispatch/footer";
 import { MarketingEnterpriseBenefits } from "./marketing-enterprise-benefits";
 import { MarketingEnterpriseHero } from "./marketing-enterprise-hero";
 import { MarketingEnterpriseCaseStudies } from "./marketing-enterprise-case-studies";
-import { MarketingEnterpriseEthos } from "./marketing-enterprise-ethos";
 import { MarketingEnterpriseIntegration } from "./marketing-enterprise-integration";
 import { MarketingEnterpriseStatsStrip } from "./marketing-enterprise-stats-strip";
-import { MarketingNav } from "./marketing-nav";
+import { MarketingLayout } from "./marketing-layout";
 import { MarketingPartnersPaths } from "./marketing-partners-paths";
 
 export function MarketingEnterprisePage() {
@@ -20,16 +18,13 @@ export function MarketingEnterprisePage() {
   }, []);
 
   return (
-    <div className="min-w-0 bg-background text-foreground antialiased">
-      <MarketingNav />
+    <MarketingLayout>
       <MarketingEnterpriseHero />
       <MarketingPartnersPaths />
       <MarketingEnterpriseStatsStrip />
       <MarketingEnterpriseBenefits />
       <MarketingEnterpriseIntegration />
       <MarketingEnterpriseCaseStudies />
-      <MarketingEnterpriseEthos />
-      <DispatchFooter />
-    </div>
+    </MarketingLayout>
   );
 }

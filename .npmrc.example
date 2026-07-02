@@ -1,6 +1,8 @@
-# Copy to `.npmrc` locally (do not commit tokens). Bankrate internal docs have the
-# exact registry host and how to obtain an auth token for the `@bankrate` scope.
+# Copy to `.npmrc` locally (gitignored). Requires a GitHub token with read:packages.
 #
-# Example pattern (replace placeholders):
-# @bankrate:registry=https://YOUR_REGISTRY_HOST/
-# //YOUR_REGISTRY_HOST/:_authToken=${NPM_TOKEN}
+#   cp .npmrc.example .npmrc
+#
+# Authenticate: export GITHUB_TOKEN=ghp_...  (or use `gh auth token`)
+#
+@bankrate:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}

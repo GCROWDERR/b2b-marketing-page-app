@@ -1,17 +1,34 @@
-import { Link } from "react-router-dom";
+import { Bank, FlourishArrows3, GlobeWorld, TallBuilding, type BankrateIcon } from "@bankrate/icons-react";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import type { IconOffsetColor, IconOffsetVariant } from "@/components/common/flourish/icon-offset";
+import { Heading2 } from "@/components/ui/typography";
 
-const paths = [
+import { MarketingPathCard } from "./marketing-path-card";
+import { marketingSectionLeadCenter } from "./marketing-copy";
+import { MarketingCopyColumn, MarketingSectionShell } from "./marketing-section-shell";
+
+const paths: {
+  id: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  href: string;
+  cta: string;
+  icon: BankrateIcon;
+  iconVariant: IconOffsetVariant;
+  iconColor: IconOffsetColor;
+}[] = [
   {
     id: "supply",
     eyebrow: "Advertise with Bankrate",
     title: "Lenders & financial institutions",
     description:
       "Reach in-market consumers across mortgage, deposits, and credit cards through Bankrate's marketplace programs.",
-    href: "/partners/lenders",
+    href: "/lenders",
     cta: "Explore advertiser programs",
+    icon: Bank,
+    iconVariant: 1,
+    iconColor: "blue",
   },
   {
     id: "enterprise-private",
@@ -19,8 +36,11 @@ const paths = [
     title: "Enterprise partnerships",
     description:
       "Embed Bankrate experiences in your product for private or captive audiences—powered by widgets, APIs, and SSO.",
-    href: "/partners/enterprise",
+    href: "/enterprise",
     cta: "View enterprise options",
+    icon: TallBuilding,
+    iconVariant: 2,
+    iconColor: "indigo",
   },
   {
     id: "affiliate",
@@ -28,58 +48,54 @@ const paths = [
     title: "Publishers & Affiliates",
     description:
       "Add Bankrate widgets and links to your site and earn revenue from your audience with scalable, low-touch setups.",
-    href: "/partners/affiliate",
+    href: "/affiliate",
     cta: "Explore affiliate programs",
+    icon: GlobeWorld,
+    iconVariant: 3,
+    iconColor: "green",
   },
-] as const;
+];
 
 export function MarketingPartnersPaths() {
   return (
-    <section
+    <MarketingSectionShell
       id="partner-paths"
-      className="scroll-mt-[calc(82px+1rem)] bg-background px-6 py-16 sm:px-12 lg:px-16 lg:py-[120px]"
+      className="scroll-mt-[calc(82px+1rem)] bg-background"
     >
-      <div className="mx-auto flex max-w-[1312px] flex-col gap-10">
-        <div className="mx-auto flex max-w-[720px] flex-col gap-4 text-center">
-          <h2 className="font-display text-4xl font-semibold leading-none tracking-[-2px] text-foreground sm:text-[48px]">
+      <div className="flex flex-col gap-10">
+        <MarketingCopyColumn className="flex flex-col gap-4 text-center">
+          <Heading2 className="relative text-pretty text-headings">
+            <FlourishArrows3
+              fill="var(--color-electric-500)"
+              className="absolute bottom-12 right-full hidden h-[4.5rem] w-[12.5rem] rotate-45 md:block"
+              aria-hidden="true"
+            />
             Three ways to partner with Bankrate
-          </h2>
-          <p className="text-lg leading-[1.45] text-foreground">
+          </Heading2>
+          <p className={marketingSectionLeadCenter}>
             Choose the path that fits your audience and commercial goals. Each option has
             different requirements, timelines, and support.
           </p>
-        </div>
+        </MarketingCopyColumn>
 
-        <div className="grid gap-6 lg:grid-cols-3">
-          {paths.map((path) => (
-            <Card
+        <div className="flex flex-col items-stretch gap-8 md:flex-row md:items-stretch md:justify-center">
+          {paths.map((path, index) => (
+            <MarketingPathCard
               key={path.id}
-              className="flex min-h-[287px] flex-col rounded-[24px] border-0 bg-card p-6 shadow-none ring-0"
-            >
-              <CardContent className="flex flex-1 flex-col gap-8 p-0">
-                <div className="flex flex-col gap-4">
-                  <p className="text-sm font-semibold text-primary">{path.eyebrow}</p>
-                  <h3 className="font-display text-2xl font-semibold leading-[33px] tracking-[-0.6px] text-card-foreground">
-                    {path.title}
-                  </h3>
-                  <p className="text-base leading-[26px] text-card-foreground">
-                    {path.description}
-                  </p>
-                </div>
-                <Button
-                  variant="primary"
-                  size="lg"
-                  arrow
-                  className="mt-auto h-[52px] w-full px-6 text-base font-bold tracking-tight"
-                  asChild
-                >
-                  <Link to={path.href}>{path.cta}</Link>
-                </Button>
-              </CardContent>
-            </Card>
+              showCornerEmphasis={index === paths.length - 1}
+              icon={path.icon}
+              iconVariant={path.iconVariant}
+              iconColor={path.iconColor}
+              kicker={path.eyebrow}
+              title={path.title}
+              description={path.description}
+              cta={path.cta}
+              href={path.href}
+              className="w-full max-w-[25rem]"
+            />
           ))}
         </div>
       </div>
-    </section>
+    </MarketingSectionShell>
   );
 }

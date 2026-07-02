@@ -1,7 +1,12 @@
-import { ENTERPRISE_IMG } from "./enterprise-assets";
+import { CircleEmphasis } from "@/components/common/flourish/circle-emphasis";
 import { Button, dispatchHeroButtonRadiusClass } from "@/components/ui/button";
-import { CircledText } from "@/components/ui/circled-text";
+import { FlourishSparkle } from "@/components/ui/flourish";
+import { Heading1 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
+
+import { ENTERPRISE_IMG } from "./enterprise-assets";
+import { marketingHeroBody } from "./marketing-copy";
+import { MarketingSectionShell } from "./marketing-section-shell";
 
 function DownPaymentCard({ className }: { className?: string }) {
   return (
@@ -12,12 +17,12 @@ function DownPaymentCard({ className }: { className?: string }) {
       )}
     >
       <p
-        className="text-[11px] font-semibold text-[#13223b]"
+        className="text-[11px] font-semibold text-blue-900"
         style={{ fontVariationSettings: "'wdth' 100" }}
       >
         Down payment
       </p>
-      <p className="mt-1 font-display text-2xl font-bold tracking-tight text-[#13223b]">
+      <p className="mt-1 font-display text-2xl font-bold tracking-tight text-blue-900">
         $83,000
       </p>
       <img
@@ -27,7 +32,7 @@ function DownPaymentCard({ className }: { className?: string }) {
         aria-hidden
       />
       <div
-        className="mt-4 h-[26px] w-full rounded-full border border-[#f5f2eb] bg-[#13223b]"
+        className="mt-4 h-[26px] w-full rounded-full border border-gray-100 bg-blue-900"
         aria-hidden
       />
     </div>
@@ -48,7 +53,7 @@ function MonthlyPaymentCard({ className }: { className?: string }) {
         className="size-[72px]"
         aria-hidden
       />
-      <p className="mt-2 text-center font-display text-sm font-bold text-[#13223b]">
+      <p className="mt-2 text-center font-display text-sm font-bold text-blue-900">
         $2,171/mo
       </p>
     </div>
@@ -58,9 +63,8 @@ function MonthlyPaymentCard({ className }: { className?: string }) {
 /** Hero from Figma frame 150:6211 — navy card on cream, portrait + UI cards on the right. */
 export function MarketingEnterpriseHero() {
   return (
-    <section className="bg-[#f5f2eb] px-6 pb-10 pt-3.5 sm:px-12">
-      <div className="mx-auto max-w-[1440px]">
-        <div className="relative min-h-[640px] overflow-hidden rounded-[32px] bg-[#13223b] lg:min-h-[674px] lg:rounded-[56px]">
+    <MarketingSectionShell variant="hero" className="bg-background pb-10">
+        <div className="relative min-h-[640px] overflow-hidden rounded-[32px] bg-blue-900 lg:min-h-[674px] lg:rounded-[56px]">
           {/* Blue union shape */}
           <div
             className="pointer-events-none absolute -right-[20%] -top-[38%] hidden h-[135%] w-[72%] lg:block"
@@ -83,14 +87,11 @@ export function MarketingEnterpriseHero() {
           <div className="relative z-10 px-6 py-12 sm:px-10 lg:absolute lg:inset-y-0 lg:left-0 lg:flex lg:w-[min(520px,42%)] lg:flex-col lg:justify-center lg:px-0 lg:pl-[70px] lg:py-[140px]">
             <div className="flex max-w-[534px] flex-col gap-8">
               <div className="relative flex flex-col gap-8">
-                <h1 className="font-display text-[clamp(2.25rem,5.5vw,4rem)] font-semibold leading-[1.2] tracking-normal text-white lg:text-[64px]">
+                <Heading1 className="leading-[1.2] tracking-tight text-white lg:max-w-[778px]">
                   Partnership paths built for how you{" "}
-                  <CircledText ringBleed="2.5em">go to market</CircledText>.
-                </h1>
-                <p
-                  className="max-w-[534px] text-lg leading-[1.4] text-[#f5f2eb]"
-                  style={{ fontVariationSettings: "'wdth' 100" }}
-                >
+                  <CircleEmphasis emphasis="go to market" />.
+                </Heading1>
+                <p className={cn("max-w-[534px]", marketingHeroBody)}>
                   Whether you lend on our marketplace, power a private audience, or
                   monetize through affiliate, start here—we will route you to the right
                   programs, integrations, and team.
@@ -112,22 +113,11 @@ export function MarketingEnterpriseHero() {
 
           {/* Desktop visual layer */}
           <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden>
-            <img
-              src={ENTERPRISE_IMG.heroSparkleYellow}
-              alt=""
-              className="absolute left-[42.7%] top-[17.4%] size-8"
+            <FlourishSparkle
+              className="left-[42%] top-[14%] w-[60px]"
+              width={60}
+              height={76}
             />
-            <img
-              src={ENTERPRISE_IMG.heroSparkleGreen}
-              alt=""
-              className="absolute left-[44.5%] top-[23.4%] size-6"
-            />
-            <img
-              src={ENTERPRISE_IMG.heroSparklePurple}
-              alt=""
-              className="absolute left-[42.7%] top-[19.8%] size-7"
-            />
-
             <DownPaymentCard className="absolute left-[51.5%] top-[14.2%] z-10" />
 
             <div className="absolute left-[47.8%] top-[1.2%] h-[698px] w-[646px] max-w-[48%] overflow-hidden">
@@ -154,7 +144,6 @@ export function MarketingEnterpriseHero() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+    </MarketingSectionShell>
   );
 }

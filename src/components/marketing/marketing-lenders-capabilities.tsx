@@ -1,5 +1,10 @@
 import { LENDERS_IMG } from "./lenders-assets";
 
+import { EyebrowSm, Heading2, Heading3 } from "@/components/ui/typography";
+
+import { marketingBody, marketingEyebrowSection } from "./marketing-copy";
+import { MarketingCopyColumn, MarketingSectionShell } from "./marketing-section-shell";
+
 const capabilities = [
   {
     title: "Marketplace Placements",
@@ -17,16 +22,16 @@ const capabilities = [
 
 export function MarketingLendersCapabilities() {
   return (
-    <section className="bg-background px-6 py-16 sm:px-12 lg:px-16 lg:py-[120px]">
-      <div className="mx-auto flex max-w-[1312px] flex-col gap-16">
-        <div className="mx-auto flex max-w-[720px] flex-col gap-4 text-center">
-          <p className="text-xs font-bold uppercase tracking-[1.8px] text-primary">
+    <MarketingSectionShell className="bg-background">
+      <div className="flex flex-col gap-16">
+        <MarketingCopyColumn className="flex flex-col gap-4 text-center">
+          <EyebrowSm as="p" className={marketingEyebrowSection}>
             Capabilities
-          </p>
-          <h2 className="font-display text-[clamp(1.75rem,3vw,2.25rem)] font-bold leading-[1.2] text-foreground">
+          </EyebrowSm>
+          <Heading2 className="text-pretty text-headings">
             Built for financial institutions at every stage.
-          </h2>
-        </div>
+          </Heading2>
+        </MarketingCopyColumn>
         <div className="grid gap-6 lg:grid-cols-3">
           {capabilities.map((item) => (
             <article
@@ -34,15 +39,8 @@ export function MarketingLendersCapabilities() {
               className="flex flex-col overflow-hidden rounded-[34px] bg-card p-4"
             >
               <div className="flex flex-col gap-4 p-4">
-                <h3 className="font-display text-2xl font-semibold leading-[1.2] tracking-[-1px] text-foreground">
-                  {item.title}
-                </h3>
-                <p
-                  className="text-base leading-[1.7] text-muted-foreground"
-                  style={{ fontVariationSettings: "'wdth' 100" }}
-                >
-                  {item.description}
-                </p>
+                <Heading3 className="text-blue-900">{item.title}</Heading3>
+                <p className={marketingBody}>{item.description}</p>
               </div>
               <div className="mt-auto overflow-hidden rounded-lg">
                 <img
@@ -55,6 +53,6 @@ export function MarketingLendersCapabilities() {
           ))}
         </div>
       </div>
-    </section>
+    </MarketingSectionShell>
   );
 }

@@ -1,10 +1,13 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import { Button } from "@/components/ui/button";
+import { Button, dispatchHeroButtonRadiusClass } from "@/components/ui/button";
+import { EyebrowLg, Heading1 } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
 
-import { DispatchFooter } from "@/components/dispatch/footer";
-import { MarketingNav } from "./marketing-nav";
+import { marketingEyebrowHero, marketingHeroBody } from "./marketing-copy";
+import { MarketingLayout } from "./marketing-layout";
+import { MarketingBrushHeroShell } from "./marketing-brush-hero-shell";
 
 type MarketingPartnersPlaceholderPageProps = {
   documentTitle: string;
@@ -28,35 +31,29 @@ export function MarketingPartnersPlaceholderPage({
   }, [documentTitle]);
 
   return (
-    <div className="min-w-0 bg-background text-foreground antialiased">
-      <div className="relative">
-        <MarketingNav />
-        <section className="relative z-0 -mt-[82px] w-full bg-surface-inverse">
-          <div className="mx-auto flex max-w-[720px] flex-col items-center px-8 pb-24 pt-[calc(5rem+82px)] text-center sm:pb-28 sm:pt-[calc(6rem+82px)]">
-            <p className="text-sm font-semibold tracking-tight text-surface-inverse-fg-soft">
-              {kicker}
-            </p>
-            <h1 className="mt-4 font-display text-[clamp(2rem,5vw,48px)] font-semibold leading-[1.15] tracking-[-2px] text-surface-inverse-fg">
-              {title}
-            </h1>
-            <p
-              className="mt-6 max-w-[540px] font-sans text-base font-normal leading-[1.5] text-surface-inverse-fg-soft sm:text-lg"
-              style={{ fontVariationSettings: "'wdth' 100" }}
-            >
-              {description}
-            </p>
-            <Button
-              variant="primary"
-              size="lg"
-              className="mt-10 h-12 px-6 text-[15px] font-semibold tracking-[-0.15px]"
-              asChild
-            >
-              <Link to="/partners">Back to partnership paths</Link>
-            </Button>
-          </div>
-        </section>
-      </div>
-      <DispatchFooter />
-    </div>
+    <MarketingLayout>
+      <MarketingBrushHeroShell
+        contentClassName="flex flex-col items-center py-20 text-center sm:py-24 lg:py-[120px]"
+      >
+        <EyebrowLg as="p" className={marketingEyebrowHero}>
+          {kicker}
+        </EyebrowLg>
+        <Heading1 className="mt-6 max-w-[640px] leading-[1.2] tracking-tight text-white">
+          {title}
+        </Heading1>
+        <p className={cn("mt-6 max-w-[540px]", marketingHeroBody)}>{description}</p>
+        <Button
+          variant="primary"
+          size="lg"
+          className={cn(
+            dispatchHeroButtonRadiusClass,
+            "mt-10 h-12 px-6 text-sm font-semibold"
+          )}
+          asChild
+        >
+          <Link to="/#partner-paths">Back to partnership paths</Link>
+        </Button>
+      </MarketingBrushHeroShell>
+    </MarketingLayout>
   );
 }

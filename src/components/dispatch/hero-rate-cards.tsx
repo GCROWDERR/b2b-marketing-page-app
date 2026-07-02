@@ -54,10 +54,10 @@ export function DispatchHeroRateCards({ className }: { className?: string }) {
             className="relative flex min-h-[88px] items-center justify-between rounded-3xl bg-white px-4 py-5 shadow-[0_4px_24px_rgba(15,27,47,0.08)] sm:min-h-[100px] sm:px-6 sm:py-6 lg:min-h-[115px] lg:px-[33px] lg:py-8"
           >
             <div className="flex min-w-0 flex-col gap-1.5 lg:gap-2.5">
-              <p className="text-[11px] leading-[1.08] tracking-[-0.71px] text-[#3b3b44] sm:text-[12px] lg:text-[14px]">
+              <p className="text-[11px] leading-[1.08] tracking-[-0.71px] text-gray-800 sm:text-[12px] lg:text-[14px]">
                 {row.eyebrow}
               </p>
-              <p className="text-sm font-bold leading-[1.7] tracking-[-0.25px] text-[#13223b] sm:text-base lg:text-lg">
+              <p className="text-sm font-bold leading-[1.7] tracking-[-0.25px] text-blue-900 sm:text-base lg:text-lg">
                 {row.highlight ? (
                   <CircledText ringBleed="1.2em">{row.term}</CircledText>
                 ) : (
@@ -66,10 +66,10 @@ export function DispatchHeroRateCards({ className }: { className?: string }) {
               </p>
             </div>
             <div className="flex shrink-0 flex-col items-end gap-1.5 text-right lg:gap-2.5">
-              <p className="text-[11px] leading-[1.08] tracking-[-0.71px] text-[#3b3b44] sm:text-[12px] lg:text-[14px]">
+              <p className="text-[11px] leading-[1.08] tracking-[-0.71px] text-gray-800 sm:text-[12px] lg:text-[14px]">
                 APR
               </p>
-              <p className="text-2xl font-bold leading-none text-[#13223b] sm:text-[28px] lg:text-[36px]">
+              <p className="text-2xl font-bold leading-none text-blue-900 sm:text-[28px] lg:text-[36px]">
                 {row.rate}
               </p>
             </div>

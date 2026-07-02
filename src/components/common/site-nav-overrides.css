@@ -1,0 +1,238 @@
+/* Bankrate ESI nav — tokens + visibility fixes for the marketing app shell. */
+
+:root {
+  --color-gray-mid: var(--color-gray-300);
+  --color-slate: var(--color-gray-700);
+  --font-weight-semibold: 600;
+}
+
+/* Keep the production nav bar opaque and above marketing hero layers. */
+.site-nav-root .SiteNav {
+  position: relative;
+  z-index: 604;
+}
+
+.site-nav-root .SiteNav-bar,
+.site-nav-root .SiteNav-wrapper {
+  overflow: visible !important;
+}
+
+/*
+ * Marketing pages always use the cream bar — not the homepage blue hero gradient.
+ * Production footer-navigation.css loads after this bundle, so use !important.
+ */
+.site-nav-root .SiteNav-bar,
+.site-nav-root .SiteNav.blue-gradient-enabled .SiteNav-bar {
+  background: var(--color-gray-50) !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.site-nav-root .SiteNavCategory,
+.site-nav-root .SiteNavCategory-link,
+.site-nav-root .SiteNavCategory-label,
+.site-nav-root .SiteNav.blue-gradient-enabled
+  .SiteNavCategories:not(.is-active)
+  .SiteNavCategory:not(.is-active)
+  .SiteNavCategory-label,
+.site-nav-root .SiteNav.blue-gradient-enabled .SiteNavCategory-label {
+  color: var(--color-gray-900) !important;
+}
+
+.site-nav-root .SiteNavCategory.is-active,
+.site-nav-root .SiteNavCategory.is-active .SiteNavCategory-label {
+  color: var(--color-blue-600) !important;
+}
+
+.site-nav-root .SiteNav.blue-gradient-enabled .SiteNav-logo svg path,
+.site-nav-root .SiteNav.blue-gradient-enabled .SiteNav-logo svg g {
+  fill: #13223b !important;
+}
+
+.site-nav-root .SiteNav:not(.is-active) .SiteNav-hamburger .SiteNav-hamburgerBars,
+.site-nav-root .SiteNav:not(.is-active) .SiteNav-hamburger .SiteNav-hamburgerBars::before,
+.site-nav-root .SiteNav:not(.is-active) .SiteNav-hamburger .SiteNav-hamburgerBars::after,
+.site-nav-root
+  .SiteNav.blue-gradient-enabled:not(.is-active)
+  .SiteNav-hamburger
+  .SiteNav-hamburgerBars,
+.site-nav-root
+  .SiteNav.blue-gradient-enabled:not(.is-active)
+  .SiteNav-hamburger
+  .SiteNav-hamburgerBars::before,
+.site-nav-root
+  .SiteNav.blue-gradient-enabled:not(.is-active)
+  .SiteNav-hamburger
+  .SiteNav-hamburgerBars::after {
+  background-color: var(--color-blue-900) !important;
+}
+
+.site-nav-root .SiteNavSearch,
+.site-nav-root .SiteNav.blue-gradient-enabled .SiteNavSearch,
+.site-nav-root .SiteNav.blue-gradient-enabled .SiteNavSearch:hover,
+.site-nav-root .SiteNav.blue-gradient-enabled .SiteNavSearch:focus {
+  color: var(--color-blue-900) !important;
+  fill: var(--color-blue-900) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.site-nav-root .marketing-partner-nav-link {
+  display: none;
+  align-items: center;
+  margin-right: 1rem;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: var(--tracking-tighter, -0.015625rem);
+  line-height: 1.7;
+  color: var(--color-gray-900);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav-root .marketing-partner-nav-link:hover {
+  color: var(--color-blue-600);
+}
+
+.site-nav-root .marketing-partner-nav-link[aria-current="page"] {
+  color: var(--color-blue-600);
+}
+
+@media (min-width: 70em) {
+  .site-nav-root .marketing-partner-nav-link {
+    display: inline-flex;
+  }
+}
+
+/*
+ * Always use expanded desktop nav inside the marketing shell — production sets
+ * `.is-condensed` on non-homepage routes and parks categories off-screen.
+ */
+
+@media (min-width: 70em) {
+  .site-nav-root .SiteNav.is-condensed .SiteNav-bar,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNav-bar,
+  .site-nav-root .SiteNav .SiteNav-bar {
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .site-nav-root .SiteNav.is-condensed .SiteNav-wrapper,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNav-wrapper,
+  .site-nav-root .SiteNav .SiteNav-wrapper {
+    height: 4.5rem !important;
+    max-width: 90rem !important;
+    align-items: stretch !important;
+    padding: 0 1.5rem !important;
+    gap: 1.5rem !important;
+  }
+
+  .site-nav-root .SiteNav.is-condensed .SiteNavCategories,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNavCategories,
+  .site-nav-root .SiteNav .SiteNavCategories {
+    position: static !important;
+    display: flex !important;
+    flex: 1 0 0 !important;
+    justify-content: flex-start !important;
+    align-items: stretch !important;
+    width: auto !important;
+    max-width: none !important;
+    height: auto !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    flex-direction: row !important;
+  }
+
+  .site-nav-root .SiteNav.is-condensed .SiteNavCategories-list,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNavCategories-list,
+  .site-nav-root .SiteNav .SiteNavCategories-list {
+    display: flex !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .site-nav-root .SiteNav.is-condensed .SiteNavCategory,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNavCategory,
+  .site-nav-root .SiteNav .SiteNavCategory {
+    display: flex !important;
+    position: relative !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: var(--color-gray-900) !important;
+    border-bottom: 0.25rem solid transparent;
+  }
+
+  .site-nav-root .SiteNav .SiteNavCategory.is-active {
+    color: var(--color-blue-600) !important;
+    background-color: var(--color-white) !important;
+    border-bottom-color: transparent;
+  }
+
+  .site-nav-root .SiteNav .SiteNavCategory.is-active .SiteNavCategory-label {
+    color: var(--color-blue-600) !important;
+  }
+
+  .site-nav-root .SiteNav .SiteNavCategory.is-active .SiteNavCategory-flyout {
+    display: flex !important;
+    z-index: 605;
+  }
+
+  .site-nav-root .SiteNav.is-condensed .SiteNavCategory-link,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNavCategory-link,
+  .site-nav-root .SiteNav .SiteNavCategory-link {
+    font-family: var(--font-sans) !important;
+    font-size: 1rem !important;
+    font-weight: var(--font-weight-semibold) !important;
+    line-height: 1.7 !important;
+    letter-spacing: var(--tracking-tighter, -0.015625rem) !important;
+    padding: 0 1rem !important;
+    width: auto !important;
+  }
+
+  .site-nav-root .SiteNav.is-condensed .SiteNavCategory-icon,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNavCategory-icon,
+  .site-nav-root .SiteNav .SiteNavCategory-icon {
+    display: none !important;
+  }
+
+  .site-nav-root .SiteNav.is-condensed .SiteNavCategory-flyout,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNavCategory-flyout,
+  .site-nav-root .SiteNav .SiteNavCategory-flyout {
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .site-nav-root .SiteNav.is-condensed .SiteNav-hamburger,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNav-hamburger,
+  .site-nav-root .SiteNav .SiteNav-hamburger {
+    display: none !important;
+  }
+
+  .site-nav-root .SiteNav.is-condensed .SiteNavSearch,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNavSearch,
+  .site-nav-root .SiteNav .SiteNavSearch {
+    display: inline-flex !important;
+  }
+
+  .site-nav-root .SiteNav.is-condensed .SiteNav-rightLinks,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNav-rightLinks,
+  .site-nav-root .SiteNav .SiteNav-rightLinks {
+    flex-shrink: 0 !important;
+  }
+}
+
+@media (min-width: 90em) {
+  .site-nav-root .SiteNav.is-condensed .SiteNavCategory-link,
+  .site-nav-root .SiteNav.marketing-nav-expanded .SiteNavCategory-link,
+  .site-nav-root .SiteNav .SiteNavCategory-link {
+    padding: 0 1.5rem !important;
+  }
+}

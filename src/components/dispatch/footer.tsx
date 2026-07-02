@@ -56,7 +56,7 @@ const FOOTER_COLUMNS = [
 /** Footer from bankrate-dispatch `components/sections/footer.tsx`. */
 export function DispatchFooter() {
   return (
-    <footer className="bg-[#13223b] text-white">
+    <footer className="bg-blue-900 text-white">
       <div className="mx-auto flex max-w-[1280px] flex-col gap-12 px-5 py-12 md:px-16 lg:flex-row lg:items-start lg:justify-between lg:gap-16 lg:px-20 lg:py-12">
         <div className="flex min-w-0 flex-col gap-6">
           <Link to="/" className="inline-block shrink-0" aria-label="Bankrate home">
@@ -143,7 +143,7 @@ function FooterLinkColumn({
           <li key={link.label}>
             <a
               href={link.href}
-              className="text-sm leading-[1.7] text-[#f9f9fc] transition-colors hover:text-white"
+              className="text-sm leading-[1.7] text-gray-100 transition-colors hover:text-white"
               target="_blank"
               rel="noopener noreferrer"
             >

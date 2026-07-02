@@ -1,28 +1,29 @@
 import { ENTERPRISE_IMG } from "./enterprise-assets";
 import { Button } from "@/components/ui/button";
+import { Heading2 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
+import { marketingOnDarkBody } from "./marketing-copy";
+import { MarketingSectionShell } from "./marketing-section-shell";
+
 const mosaicPhotos = [
-  { src: ENTERPRISE_IMG.missionPhoto1, bg: "bg-[#a8a8e8]" },
-  { src: ENTERPRISE_IMG.missionPhoto2, bg: "bg-[#7ad595]" },
-  { src: ENTERPRISE_IMG.missionPhoto3, bg: "bg-[#fbd772]" },
-  { src: ENTERPRISE_IMG.missionPhoto4, bg: "bg-[#7ad595]" },
+  { src: ENTERPRISE_IMG.missionPhoto1, bg: "bg-purple-400" },
+  { src: ENTERPRISE_IMG.missionPhoto2, bg: "bg-green-300" },
+  { src: ENTERPRISE_IMG.missionPhoto3, bg: "bg-yellow-200" },
+  { src: ENTERPRISE_IMG.missionPhoto4, bg: "bg-green-300" },
 ] as const;
 
 export function MarketingEnterpriseEthos() {
   return (
-    <section className="bg-background px-6 py-16 sm:px-12 lg:px-16 lg:py-[120px]">
-      <div className="mx-auto max-w-[1312px] overflow-hidden rounded-[48px] bg-gradient-to-b from-[#13223b] to-[#0f1b2f] px-8 py-14 lg:px-20 lg:py-16">
+    <MarketingSectionShell className="bg-background">
+      <div className="overflow-hidden rounded-[48px] bg-gradient-to-b from-blue-900 to-blue-800 px-8 py-14 lg:px-20 lg:py-16">
         <div className="flex flex-col gap-14 lg:flex-row lg:items-center lg:gap-[112px]">
           <div className="flex max-w-[492px] flex-col gap-8">
             <div className="flex flex-col gap-6">
-              <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-semibold leading-[1.2] tracking-[-2px] text-white lg:text-[48px]">
+              <Heading2 className="text-pretty text-white">
                 We connect people to trusted ways to save, borrow, and thrive.
-              </h2>
-              <p
-                className="text-lg text-white"
-                style={{ fontVariationSettings: "'wdth' 100" }}
-              >
+              </Heading2>
+              <p className={marketingOnDarkBody}>
                 Our mission doesn&apos;t stop with the consumer. We are committed to building
                 a transparent, efficient marketplace where financial institutions can thrive
                 alongside the customers they serve. Let&apos;s build the future of finance
@@ -61,6 +62,6 @@ export function MarketingEnterpriseEthos() {
           </div>
         </div>
       </div>
-    </section>
+    </MarketingSectionShell>
   );
 }
