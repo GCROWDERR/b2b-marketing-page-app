@@ -1,99 +1,355 @@
+@import "tailwindcss";
 @import "tw-animate-css";
-@import "shadcn/tailwind.css";
 @import "./components/ui/button/button.css";
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@plugin "@tailwindcss/typography";
+@config "../tailwind.config.js";
 
-/**
- * Bankrate marketing theme: Shadcn semantics + extras
- * Tokens live outside @layer base so dev/build always emit them (inverse strips
- * rely on --surface-inverse*; inside @layer base they can fail to load in Vite).
- */
-:root {
-  --font-heading: "Playfair Display", Georgia, serif;
-  --font-sans: "Instrument Sans", system-ui, sans-serif;
-  --background: #f5f2eb;
-  --foreground: #13223b;
+/* ============================================================================
+ * The Ledger — Bankrate's design system theme (v2 / Tailwind v4)
+ * Source: https://ledger.bankrate.com/r/theme.json (registry/common/globals.css)
+ * Kept verbatim below. App-specific tokens are layered afterward in the
+ * "Marketing app extensions" block so nothing in components/ breaks.
+ * ==========================================================================*/
 
-  --card: #ffffff;
-  --card-foreground: #13223b;
-  --popover: #ffffff;
-  --popover-foreground: #13223b;
-
-  --primary: #0061fe;
-  --primary-foreground: #ffffff;
-  --destructive-foreground: #ffffff;
-
-  --color-white: #ffffff;
+@theme {
+  --color-red-50: #fff6f5;
+  --color-red-100: #fdedeb;
+  --color-red-200: #ffdad5;
+  --color-red-300: #ffb4ad;
+  --color-red-400: #fb8c84;
+  --color-red-500: #f46a64;
+  --color-red-600: #c33636;
+  --color-red-700: #992929;
+  --color-red-800: #711c1c;
+  --color-red-900: #4b1010;
+  --color-orange-50: #fff8f1;
+  --color-orange-100: #feeedf;
+  --color-orange-200: #ffddbd;
+  --color-orange-300: #feb874;
+  --color-orange-400: #f49728;
+  --color-orange-500: #d57a1b;
+  --color-orange-600: #a7540e;
+  --color-orange-700: #8a3b05;
+  --color-orange-800: #692600;
+  --color-orange-900: #280f00;
+  --color-yellow-50: #fff8e4;
+  --color-yellow-100: #fef0c8;
+  --color-yellow-200: #fbd772;
+  --color-yellow-300: #efc138;
+  --color-yellow-400: #d3a434;
+  --color-yellow-500: #bb8f37;
+  --color-yellow-600: #8e6223;
+  --color-yellow-700: #6e4c1c;
+  --color-yellow-800: #4f3715;
+  --color-yellow-900: #33220d;
+  --color-green-50: #f0faf2;
+  --color-green-100: #e1f6e6;
+  --color-green-200: #c3eccd;
+  --color-green-300: #7ad595;
+  --color-green-400: #6abc82;
+  --color-green-500: #63a475;
+  --color-green-600: #417550;
+  --color-green-700: #315b3d;
+  --color-green-800: #22422b;
+  --color-green-900: #142a1a;
+  --color-blue-50: #f2f7ff;
+  --color-blue-100: #eaf1ff;
   --color-blue-200: #dce7fe;
   --color-blue-300: #a7c8ff;
-  --color-blue-800: #003d99;
-  --color-blue-900: #002966;
-
+  --color-blue-400: #7bacff;
+  --color-blue-500: #5994fd;
+  --color-blue-600: #0061fe;
+  --color-blue-700: #104bb5;
+  --color-blue-800: #14387a;
+  --color-blue-900: #13223b;
+  --color-electric-50: #f1f9ff;
+  --color-electric-100: #e6f2fd;
+  --color-electric-200: #cae6ff;
+  --color-electric-300: #93ccff;
+  --color-electric-400: #55b1ff;
+  --color-electric-500: #009dff;
+  --color-electric-600: #006eb6;
+  --color-electric-700: #005590;
+  --color-electric-800: #053d69;
+  --color-electric-900: #002745;
+  --color-purple-50: #f7f7fd;
+  --color-purple-100: #eff0fc;
+  --color-purple-200: #e0e1f8;
+  --color-purple-300: #c2c3f1;
+  --color-purple-400: #a8a8e8;
+  --color-purple-500: #9191c4;
+  --color-purple-600: #676791;
+  --color-purple-700: #4f4f70;
+  --color-purple-800: #393953;
+  --color-purple-900: #242436;
+  --color-lavender-50: #fbf9fb;
+  --color-lavender-100: #f6eef5;
+  --color-lavender-200: #f0dcef;
+  --color-lavender-300: #debcdb;
+  --color-lavender-400: #c79fc5;
+  --color-lavender-500: #b480af;
+  --color-lavender-600: #9b4f8f;
+  --color-lavender-700: #8a2a7c;
+  --color-lavender-800: #671b5c;
+  --color-lavender-900: #270a23;
+  --color-gray-50: #faf8f5;
+  --color-gray-100: #f5f2eb;
+  --color-gray-200: #e5e2db;
+  --color-gray-300: #c9c6c1;
+  --color-gray-400: #aeaba6;
+  --color-gray-500: #989593;
+  --color-gray-600: #6c6a67;
+  --color-gray-700: #535250;
+  --color-gray-800: #3b3b39;
+  --color-gray-900: #272625;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-transparent: transparent;
+  --font-sans: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "RecifeText", ui-serif, system-ui, serif;
+  --font-mono: ui-monospace, monospace;
   --text-xs: 0.75rem;
+  --text-xs--line-height: 1.7;
   --text-sm: 0.875rem;
+  --text-sm--line-height: 1.7;
+  --text-md: 1rem;
+  --text-md--line-height: 1.7;
   --text-base: 1rem;
+  --text-base--line-height: 1.7;
   --text-lg: 1.125rem;
+  --text-lg--line-height: 1.7;
   --text-xl: 1.25rem;
+  --text-xl--line-height: 1.7;
   --text-2xl: 1.5rem;
+  --text-2xl--line-height: 1.7;
+  --text-3xl: 1.75rem;
+  --text-3xl--line-height: 1.2;
+  --text-4xl: 2.25rem;
+  --text-4xl--line-height: 1.2;
+  --text-5xl: 3rem;
+  --text-5xl--line-height: 1.2;
+  --text-6xl: 3.5rem;
+  --text-6xl--line-height: 1.2;
+  --text-7xl: 4rem;
+  --text-7xl--line-height: 1.2;
+  --text-8xl: 4.5rem;
+  --text-8xl--line-height: 1.2;
+  --text-9xl: 6rem;
+  --text-9xl--line-height: 1.2;
   --leading-none: 1;
-  --letter-spacing-tighter: -0.015625rem;
+  --leading-tight: 1.2;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.7;
+  --leading-loose: 2;
+  --tracking-tighter: -0.015625rem;
+  --tracking-tight: -0.009375rem;
+  --tracking-normal: 0;
+  --tracking-wide: 0.1125rem;
+  --tracking-wider: 0.15625rem;
+  --underline-offset-0: 0;
+  --underline-offset-1: 0.0625rem;
+  --underline-offset-2: 0.125rem;
+  --underline-offset-4: 0.25rem;
+  --underline-offset-8: 0.5rem;
+  --underline-offset-auto: auto;
+  --breakpoint-sm: 40em;
+  --breakpoint-md: 55em;
+  --breakpoint-lg: 70em;
+  --breakpoint-xl: 90em;
+  --shadow-color: color-mix(in oklab, var(--color-gray-900) 20%, transparent);
+  --shadow-sm: 0.3125rem 0.3125rem 0.9375rem -0.625rem var(--shadow-color), -0.3125rem 0.3125rem 0.9375rem -0.625rem
+    var(--shadow-color);
+  --shadow-md: 0 0.5rem 0.9375rem -0.1875rem var(--shadow-color), 0 0 0.1875rem 0 var(--shadow-color);
+  --shadow-lg: 0 0.5rem 1.5rem -0.1875rem var(--shadow-color), 0 0 0.1875rem 0 var(--shadow-color);
+  --shadow-xl: 0 1.5rem 1.875rem -0.5rem var(--shadow-color), 0 0 0.25rem 0 var(--shadow-color);
+  --shadow-none: 0 0 color-mix(in oklab, var(--color-gray-900) 0%, transparent);
+  --section-main: 80rem;
+  --section-narrow: 67.5rem;
+  --section-copy: 45rem;
+}
+
+@font-face {
+  font-family: "RecifeText";
+  font-style: normal;
+  font-display: swap;
+  src: url("https://www.bankrate.com/static/fonts/RecifeText-VF.woff2") format("woff2");
+}
+
+:root {
+  /* Base */
+  --background: var(--color-white);
+  --foreground: var(--color-blue-900);
+  /* Card */
+  --card: var(--color-white);
+  --card-foreground: var(--color-blue-900);
+  /* Popover */
+  --popover: var(--color-white);
+  --popover-foreground: var(--color-gray-900);
+  /* Primary */
+  --primary: var(--color-blue-600);
+  --primary-foreground: var(--color-white);
+  /* Secondary */
+  --secondary: var(--color-gray-50);
+  --secondary-foreground: var(--color-gray-700);
+  /* Muted */
+  --muted: var(--color-gray-100);
+  --muted-foreground: var(--color-gray-700);
+  /* Accent */
+  --accent: var(--color-blue-50);
+  --accent-foreground: var(--color-gray-900);
+  /* Destructive */
+  --destructive: var(--color-red-600);
+  --destructive-foreground: var(--color-white);
+  /* Borders & inputs */
+  --border: var(--color-gray-200);
+  --color-border: var(--border);
+  --input: var(--color-gray-500);
+  /* Focus ring */
+  --ring: var(--color-blue-600);
+  /* Border radius */
+  --radius: 0.5rem;
+  /* Charts */
+  --chart-1: var(--color-electric-500);
+  --chart-2: var(--color-blue-800);
+  --chart-3: var(--color-green-400);
+  --chart-4: var(--color-yellow-300);
+  --chart-5: var(--color-lavender-700);
+  /* Sidebar */
+  --sidebar: var(--color-gray-50);
+  --sidebar-foreground: var(--color-gray-900);
+  --sidebar-primary: var(--color-gray-700);
+  --sidebar-primary-foreground: var(--color-gray-200);
+  --sidebar-accent: var(--color-blue-50);
+  --sidebar-accent-foreground: var(--color-gray-700);
+  --sidebar-border: var(--color-gray-200);
+  --sidebar-ring: var(--color-blue-600);
+  /* Slider */
+  --slider-range: var(--color-blue-600);
+  --slider-track: var(--color-gray-100);
+  --slider-thumb: var(--color-white);
+  --slider-thumb-border: var(--color-blue-600);
+  /* List */
+  --list-marker: var(--color-blue-800);
+  /* Headings */
+  --headings: var(--color-blue-900);
+  /* States */
+  --error: var(--color-red-600);
+  --error-foreground: var(--color-white);
+  --success: var(--color-green-500);
+  --success-foreground: var(--color-white);
+  --warning: var(--color-orange-500);
+  --warning-foreground: var(--color-gray-900);
+  --info: var(--color-blue-600);
+  --info-foreground: var(--color-white);
+  --primary-hover: var(--color-blue-700);
+  --secondary-hover: var(--color-gray-200);
+  --destructive-hover: var(--color-red-700);
+  --chart-6: var(--color-green-800);
+  --chart-7: var(--color-purple-400);
+  --chart-8: var(--color-red-800);
+  --chart-9: var(--color-electric-700);
+  --chart-10: var(--color-gray-600);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-hover: var(--destructive-hover);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-chart-6: var(--chart-6);
+  --color-chart-7: var(--chart-7);
+  --color-chart-8: var(--chart-8);
+  --color-chart-9: var(--chart-9);
+  --color-chart-10: var(--chart-10);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-slider-range: var(--slider-range);
+  --color-slider-track: var(--slider-track);
+  --color-slider-thumb: var(--slider-thumb);
+  --color-slider-thumb-border: var(--slider-thumb-border);
+  --color-list-marker: var(--list-marker);
+  --color-headings: var(--headings);
+  --color-error: var(--error);
+  --color-error-foreground: var(--error-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-info: var(--info);
+  --color-info-foreground: var(--info-foreground);
+
+  /* Token system defines sm–xl; map shadcn/ui extra shadow sizes */
+  --shadow-2xs: var(--shadow-sm);
+  --shadow-xs: var(--shadow-sm);
+  --shadow: var(--shadow-md);
+  --shadow-2xl: var(--shadow-xl);
+}
+
+/* ============================================================================
+ * Marketing app extensions — tokens the marketing components rely on that the
+ * base Ledger theme does not define. Mapped onto Ledger's palette where
+ * possible so the two stay in sync.
+ * ==========================================================================*/
+:root {
+  /* Display/heading font used by the marketing layouts (font-heading/font-display) */
+  --font-heading: "Playfair Display", Georgia, serif;
+
+  /* button.css component dependencies */
   --font-weight-bold: 700;
+  --letter-spacing-tighter: var(--tracking-tighter);
   --tw-duration: 150ms;
   --tw-ease: cubic-bezier(0.4, 0, 0.2, 1);
-
-  --secondary: #f2f7ff;
-  --secondary-foreground: #13223b;
-
-  --muted: #f2f7ff;
-  --muted-foreground: #4c5d78;
-
-  --accent: #e8edf5;
-  --accent-foreground: #13223b;
-
-  --destructive: oklch(0.577 0.245 27.325);
-
-  --border: #e7e5df;
-  --input: #e7e5df;
-  --ring: #0061fe;
-
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-
-  --radius: 0.625rem;
-  --radius-md: 0.625rem;
   --button-radius: 0.625rem;
   --button-radius-sm: 0.5rem;
   --button-radius-lg: calc(var(--button-radius-sm) * 1.4);
 
-  --sidebar: #f5f2eb;
-  --sidebar-foreground: #13223b;
-  --sidebar-primary: #0061fe;
-  --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #f2f7ff;
-  --sidebar-accent-foreground: #13223b;
-  --sidebar-border: #e7e5df;
-  --sidebar-ring: #0061fe;
-
+  /* Inverse (navy) surfaces used by hero/editorial strips */
   --surface-inverse: #0f1b2f;
   --surface-inverse-foreground: #ffffff;
-  --surface-inverse-foreground-soft: #f5f2eb;
+  --surface-inverse-foreground-soft: var(--color-gray-100);
   --surface-inverse-border: #1f3354;
-  --surface-inverse-input: #13223b;
+  --surface-inverse-input: var(--color-blue-900);
 
-  --tone-positive: #7ad595;
+  /* Semantic tones (mapped to Ledger palette) */
+  --tone-positive: var(--color-green-300);
   --tone-positive-strong: #498059;
   --tone-positive-muted: #def5e5;
-  --tone-warn: #fbd772;
-  --tone-purple: #a8a8e8;
+  --tone-warn: var(--color-yellow-200);
+  --tone-purple: var(--color-purple-400);
 
   --feature-soft-blue: #f0f4ff;
 
-  --gradient-editorial-from: #13223b;
+  --gradient-editorial-from: var(--color-blue-900);
   --gradient-editorial-to: #0f1b2f;
 
   --journey-panel-gradient: linear-gradient(
@@ -118,15 +374,11 @@
   --muted-foreground: #b8c0d0;
   --accent: #1f3354;
   --accent-foreground: #f5f2eb;
-  --destructive: oklch(0.704 0.191 22.216);
+  --destructive: var(--color-red-500);
   --border: rgb(255 255 255 / 12%);
   --input: rgb(255 255 255 / 15%);
   --ring: #5a9cff;
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --headings: #f5f2eb;
   --sidebar: #0f1b2f;
   --sidebar-foreground: #f5f2eb;
   --sidebar-primary: #5a9cff;
@@ -155,8 +407,12 @@
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-border, currentColor);
   }
   body {
     @apply bg-background text-foreground;
@@ -164,4 +420,27 @@
   html {
     @apply font-sans;
   }
+}
+
+/* Wysiwyg / prose color theme — declared in @utility so these variables
+ * cascade after @tailwindcss/typography's component-layer defaults. */
+@utility prose {
+  --tw-prose-body: var(--color-gray-700);
+  --tw-prose-headings: var(--color-headings);
+  --tw-prose-lead: var(--color-gray-700);
+  --tw-prose-links: var(--color-blue-600);
+  --tw-prose-bold: var(--color-gray-900);
+  --tw-prose-counters: var(--color-blue-700);
+  --tw-prose-bullets: var(--color-list-marker);
+  --tw-prose-hr: var(--color-gray-200);
+  --tw-prose-quotes: var(--color-gray-900);
+  --tw-prose-quote-borders: var(--color-blue-800);
+  --tw-prose-captions: var(--color-gray-700);
+  --tw-prose-kbd: var(--color-gray-900);
+  --tw-prose-kbd-shadows: var(--color-gray-900);
+  --tw-prose-code: var(--color-gray-900);
+  --tw-prose-pre-code: var(--color-gray-100);
+  --tw-prose-pre-bg: var(--color-gray-900);
+  --tw-prose-th-borders: var(--color-gray-300);
+  --tw-prose-td-borders: var(--color-gray-200);
 }
