@@ -1,35 +1,69 @@
+import { Checkmark } from "@bankrate/icons-react";
+
 import { PartnersInquiryForm } from "@/components/common/partners-inquiry-form";
 import { Heading2 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingBodySm, marketingSectionLead } from "./marketing-copy";
+import { marketingBody, marketingBodySm, marketingSectionLead } from "./marketing-copy";
 import { MarketingSectionShell } from "./marketing-section-shell";
 
 type MarketingPartnersSalesFormProps = {
-  variant?: "default" | "enterprise";
+  variant?: "default" | "enterprise" | "affiliate";
 };
+
+const affiliateBenefits = [
+  "Fast approval process",
+  "Access to pre-made assets",
+  "Dedicated onboarding support",
+];
 
 export function MarketingPartnersSalesForm({
   variant = "default",
 }: MarketingPartnersSalesFormProps) {
   const isEnterprise = variant === "enterprise";
+  const isAffiliate = variant === "affiliate";
 
   return (
     <MarketingSectionShell
-      id="contact-sales"
-      className="scroll-mt-[calc(82px+1rem)] bg-background"
+      id={isAffiliate ? "apply" : "contact-sales"}
+      className={cn(
+        "scroll-mt-[calc(82px+1rem)] bg-background",
+        isAffiliate && "py-16 lg:py-20"
+      )}
     >
-      {isEnterprise ? (
+      {isEnterprise || isAffiliate ? (
         <div className="grid gap-12 lg:grid-cols-[minmax(0,480px)_1fr] lg:gap-20">
           <div className="flex flex-col gap-8">
-            <Heading2 className="text-pretty text-headings">Tell us about your goals</Heading2>
+            <Heading2 className="text-pretty text-headings">
+              {isAffiliate
+                ? "Apply to become an affiliate partner"
+                : "Tell us about your goals"}
+            </Heading2>
             <p className={marketingSectionLead}>
-              Our team will reach out within 24 hours to discuss how Bankrate can power your
-              audience&apos;s financial journey.
+              {isAffiliate
+                ? "Ready to scale your earnings? Fill out the application and our partnership team will be in touch shortly."
+                : "Our team will reach out within 24 hours to discuss how Bankrate can power your audience\u2019s financial journey."}
             </p>
+            {isAffiliate ? (
+              <ul className="flex flex-col gap-4 pt-2">
+                {affiliateBenefits.map((benefit) => (
+                  <li key={benefit} className="flex items-center gap-2">
+                    <span className="flex size-5 shrink-0 items-center justify-center rounded-[10px] bg-primary">
+                      <Checkmark className="size-3 text-white" aria-hidden />
+                    </span>
+                    <span className={marketingBody}>{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
           </div>
           <div className="rounded-2xl border border-border bg-card p-8 sm:p-10">
-            <PartnersInquiryForm submitLabel="Submit Request" />
+            <PartnersInquiryForm
+              submitLabel="Submit Request"
+              defaultInterest={isAffiliate ? "affiliate" : undefined}
+              hideInterestField={isAffiliate}
+              className="flex-col lg:flex-col"
+            />
             <p className={cn("mt-6 text-center text-[11px]", marketingBodySm)}>
               By clicking submit, you agree to our Terms of Use and Privacy Policy.
             </p>

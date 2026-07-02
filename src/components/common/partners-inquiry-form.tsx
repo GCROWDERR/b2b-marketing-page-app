@@ -72,12 +72,16 @@ type PartnersInquiryFormProps = {
   className?: string;
   formId?: string;
   submitLabel?: string;
+  defaultInterest?: string;
+  hideInterestField?: boolean;
 };
 
 export function PartnersInquiryForm({
   className,
   formId: formIdProp,
   submitLabel = "Request info",
+  defaultInterest = PARTNERS_INTEREST_OPTIONS[0].value,
+  hideInterestField = false,
 }: PartnersInquiryFormProps) {
   useRecaptchaScript();
 
@@ -89,7 +93,10 @@ export function PartnersInquiryForm({
   const interestId = `${formId}-interest`;
   const messageId = `${formId}-message`;
 
-  const [form, setForm] = useState<FormState>(INITIAL_STATE);
+  const [form, setForm] = useState<FormState>({
+    ...INITIAL_STATE,
+    interest: defaultInterest,
+  });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [serverErrors, setServerErrors] = useState<string[]>([]);
   const [submitting, setSubmitting] = useState(false);
@@ -136,7 +143,7 @@ export function PartnersInquiryForm({
   }
 
   function handleReset() {
-    setForm(INITIAL_STATE);
+    setForm({ ...INITIAL_STATE, interest: defaultInterest });
     setErrors({});
     setServerErrors([]);
     setSuccess(false);
@@ -259,37 +266,39 @@ export function PartnersInquiryForm({
           )}
         </div>
 
-        <div className="flex flex-col gap-2">
-          <Label htmlFor={interestId}>
-            I&apos;m interested in <span className="text-primary">*</span>
-          </Label>
-          <Select
-            value={form.interest}
-            onValueChange={(value) => updateField("interest", value)}
-          >
-            <SelectTrigger
-              id={interestId}
-              size="lg"
-              aria-invalid={!!errors.interest}
-              aria-describedby={errors.interest ? `${interestId}-error` : undefined}
-              className="w-full bg-card"
+        {!hideInterestField ? (
+          <div className="flex flex-col gap-2">
+            <Label htmlFor={interestId}>
+              I&apos;m interested in <span className="text-primary">*</span>
+            </Label>
+            <Select
+              value={form.interest}
+              onValueChange={(value) => updateField("interest", value)}
             >
-              <SelectValue placeholder="Select an option" />
-            </SelectTrigger>
-            <SelectContent>
-              {PARTNERS_INTEREST_OPTIONS.map((opt) => (
-                <SelectItem key={opt.value} value={opt.value}>
-                  {opt.label}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          {errors.interest && (
-            <p id={`${interestId}-error`} className="text-sm text-destructive">
-              {errors.interest}
-            </p>
-          )}
-        </div>
+              <SelectTrigger
+                id={interestId}
+                size="lg"
+                aria-invalid={!!errors.interest}
+                aria-describedby={errors.interest ? `${interestId}-error` : undefined}
+                className="w-full bg-card"
+              >
+                <SelectValue placeholder="Select an option" />
+              </SelectTrigger>
+              <SelectContent>
+                {PARTNERS_INTEREST_OPTIONS.map((opt) => (
+                  <SelectItem key={opt.value} value={opt.value}>
+                    {opt.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
+            {errors.interest && (
+              <p id={`${interestId}-error`} className="text-sm text-destructive">
+                {errors.interest}
+              </p>
+            )}
+          </div>
+        ) : null}
 
         {serverErrors.length > 0 && (
           <div

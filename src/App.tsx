@@ -1,10 +1,11 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import { MarketingAppShell } from "@/components/marketing/marketing-app-shell";
+import { MarketingAffiliatePage } from "@/components/marketing/marketing-affiliate-page";
+import { MarketingAmazonCaseStudyPage } from "@/components/marketing/marketing-amazon-case-study-page";
 import { MarketingEnterprisePage } from "@/components/marketing/marketing-enterprise-page";
 import { MarketingEnterprisePartnersPage } from "@/components/marketing/marketing-enterprise-partners-page";
 import { MarketingLendersPage } from "@/components/marketing/marketing-lenders-page";
-import { MarketingPartnersPlaceholderPage } from "@/components/marketing/marketing-partners-placeholder-page";
 
 export default function App() {
   return (
@@ -13,17 +14,8 @@ export default function App() {
         <Route path="/" element={<MarketingEnterprisePage />} />
         <Route path="/lenders" element={<MarketingLendersPage />} />
         <Route path="/enterprise" element={<MarketingEnterprisePartnersPage />} />
-        <Route
-          path="/affiliate"
-          element={
-            <MarketingPartnersPlaceholderPage
-              documentTitle="Bankrate B2B — Affiliate"
-              kicker="Affiliate partners"
-              title="Affiliate hub is on the way"
-              description="Cross-vertical affiliate materials—integrations, proof points, and examples for public site owners—will live here, separate from private enterprise programs."
-            />
-          }
-        />
+        <Route path="/case-studies/amazon" element={<MarketingAmazonCaseStudyPage />} />
+        <Route path="/affiliate" element={<MarketingAffiliatePage />} />
 
         {/* Legacy paths from the removed /partners hub */}
         <Route path="/partners" element={<Navigate to="/" replace />} />

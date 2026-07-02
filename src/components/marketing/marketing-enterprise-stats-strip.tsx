@@ -1,5 +1,6 @@
 import { MarketingStatPlus, MarketingStatTile } from "./marketing-stat-tile";
 import {
+  AFFILIATE_PROOF_STATS,
   ENTERPRISE_STATS,
   ENTERPRISE_WHY_STATS,
   type MarketingStatDefinition,
@@ -7,18 +8,46 @@ import {
 import { MarketingSectionShell } from "./marketing-section-shell";
 import { StatTooltip } from "./stat-tooltip";
 
-import { EyebrowSm, Heading2 } from "@/components/ui/typography";
+import { EyebrowSm, Heading1, Heading2, Heading3 } from "@/components/ui/typography";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
 import { marketingEyebrowSection } from "./marketing-copy";
 
 type MarketingEnterpriseStatsStripProps = {
-  variant?: "homepage" | "enterprise";
+  variant?: "homepage" | "enterprise" | "affiliate";
 };
 
 export function MarketingEnterpriseStatsStrip({
   variant = "homepage",
 }: MarketingEnterpriseStatsStripProps) {
+  if (variant === "affiliate") {
+    return (
+      <MarketingSectionShell className="bg-background py-16 lg:py-20">
+        <div className="flex flex-col gap-16">
+          <Heading2 className="text-center text-pretty text-headings">
+            What affiliate partners are seeing
+          </Heading2>
+          <div className="grid gap-8 lg:grid-cols-2">
+            {AFFILIATE_PROOF_STATS.map((stat) => (
+              <div
+                key={stat.title}
+                className="flex flex-col gap-6 rounded-3xl bg-blue-900 p-8 lg:p-12"
+              >
+                <Heading1 className="text-blue-200">{stat.value}</Heading1>
+                <div className="flex flex-col gap-3">
+                  <Heading3 className="text-white">{stat.title}</Heading3>
+                  <p className="text-base leading-relaxed tracking-tighter text-gray-200">
+                    {stat.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </MarketingSectionShell>
+    );
+  }
+
   if (variant === "enterprise") {
     return (
       <MarketingSectionShell className="bg-background py-16 lg:py-[120px]">

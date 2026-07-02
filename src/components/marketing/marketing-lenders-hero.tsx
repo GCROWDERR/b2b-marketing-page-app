@@ -1,3 +1,5 @@
+import type { ReactNode } from "react";
+
 import { LineEmphasis } from "@/components/common/flourish/line-emphasis";
 import { Button, dispatchHeroButtonRadiusClass } from "@/components/ui/button";
 import { FlourishSparkle } from "@/components/ui/flourish";
@@ -8,7 +10,19 @@ import { LENDERS_IMG } from "./lenders-assets";
 import { marketingHeroBody } from "./marketing-copy";
 import { MarketingSectionShell } from "./marketing-section-shell";
 
-export function MarketingLendersHero() {
+type MarketingLendersHeroProps = {
+  headline?: ReactNode;
+  description?: string;
+  ctaLabel?: string;
+  ctaHref?: string;
+};
+
+export function MarketingLendersHero({
+  headline,
+  description = "Bankrate connects your products to millions of consumers actively comparing rates, products, and lenders — with an opt-in experience built for quality.",
+  ctaLabel = "Choose a partnership path",
+  ctaHref = "#lenders-goals",
+}: MarketingLendersHeroProps = {}) {
   return (
     <MarketingSectionShell variant="hero" className="bg-background pb-10">
         <div className="relative min-h-[640px] overflow-hidden rounded-[32px] bg-blue-900 lg:min-h-[674px] lg:rounded-[56px]">
@@ -34,17 +48,15 @@ export function MarketingLendersHero() {
             <div className="flex max-w-[599px] flex-col gap-8">
               <div className="flex flex-col gap-8">
                 <Heading1 className="leading-[1.2] tracking-tight text-white">
-                  <LineEmphasis
-                    before="Reach high-intent financial shoppers "
-                    emphasis="at the moment"
-                    after=" they're ready to act"
-                  />
+                  {headline ?? (
+                    <LineEmphasis
+                      before="Reach high-intent financial shoppers "
+                      emphasis="at the moment"
+                      after=" they're ready to act"
+                    />
+                  )}
                 </Heading1>
-                <p className={cn("max-w-[534px]", marketingHeroBody)}>
-                  Bankrate connects your products to millions of consumers actively
-                  comparing rates, products, and lenders — with an opt-in experience
-                  built for quality.
-                </p>
+                <p className={cn("max-w-[534px]", marketingHeroBody)}>{description}</p>
               </div>
               <Button
                 variant="primary"
@@ -55,7 +67,7 @@ export function MarketingLendersHero() {
                 )}
                 asChild
               >
-                <a href="#lenders-goals">Choose a partnership path</a>
+                <a href={ctaHref}>{ctaLabel}</a>
               </Button>
             </div>
           </div>

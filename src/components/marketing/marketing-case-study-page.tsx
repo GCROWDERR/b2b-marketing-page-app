@@ -1,0 +1,238 @@
+import { FlourishCircle, FlourishQuoteLeft } from "@bankrate/icons-react";
+
+import { IconOffset } from "@/components/common/flourish/icon-offset";
+import { Card, CardContent } from "@/components/ui/card";
+import { EyebrowSm, Heading1, Heading2, Heading4 } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
+
+import type { CaseStudyContent } from "./marketing-case-study-types";
+import {
+  marketingBody,
+  marketingEyebrowHero,
+  marketingEyebrowSection,
+  marketingHeroBody,
+  marketingSectionLead,
+} from "./marketing-copy";
+import { MarketingLayout } from "./marketing-layout";
+import { MarketingSectionShell } from "./marketing-section-shell";
+import { MarketingStatPlus, MarketingStatTile } from "./marketing-stat-tile";
+
+type MarketingCaseStudyPageProps = {
+  content: CaseStudyContent;
+};
+
+export function MarketingCaseStudyPage({ content }: MarketingCaseStudyPageProps) {
+  return (
+    <MarketingLayout>
+      <CaseStudyHero content={content} />
+      <CaseStudyOverviewStats stats={content.overviewStats} />
+      <CaseStudyChallenge content={content.challenge} />
+      <CaseStudySolution content={content.solution} />
+      <CaseStudyResults content={content.results} />
+      <CaseStudyQuote quote={content.quote} />
+    </MarketingLayout>
+  );
+}
+
+function CaseStudyHero({ content }: { content: CaseStudyContent }) {
+  const { hero } = content;
+
+  return (
+    <MarketingSectionShell variant="hero" className="bg-background">
+      <div className="relative overflow-hidden rounded-[32px] bg-blue-900 lg:rounded-[56px]">
+        <div className="flex flex-col lg:min-h-[620px] lg:flex-row lg:items-stretch">
+          <div className="flex flex-1 flex-col justify-center gap-4 px-6 py-16 lg:px-[70px] lg:py-[140px]">
+            <EyebrowSm as="p" className={marketingEyebrowHero}>
+              {hero.label}
+            </EyebrowSm>
+            <Heading1 className="text-pretty text-white lg:text-[56px] lg:leading-[1.2]">
+              {hero.headline}
+            </Heading1>
+            <p className={cn("max-w-[603px]", marketingHeroBody)}>{hero.summary}</p>
+          </div>
+          <div className="flex flex-1 items-end justify-center px-6 pb-10 lg:items-center lg:px-10 lg:pb-0 lg:pt-32">
+            <div className="relative w-full max-w-[533px] overflow-hidden rounded-[48px] bg-primary">
+              <img
+                src={hero.imageSrc}
+                alt={hero.imageAlt}
+                className="mx-auto block h-auto w-full max-w-[420px] object-contain p-6 lg:max-w-none lg:p-10"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </MarketingSectionShell>
+  );
+}
+
+function CaseStudyOverviewStats({
+  stats,
+}: {
+  stats: CaseStudyContent["overviewStats"];
+}) {
+  return (
+    <MarketingSectionShell className="bg-background py-16 lg:py-[64px]">
+      <div className="grid gap-6 lg:grid-cols-3">
+        {stats.map((stat) => (
+          <MarketingStatTile
+            key={stat.label}
+            value={
+              <>
+                {stat.value}
+                {stat.suffix ? <MarketingStatPlus /> : null}
+              </>
+            }
+            label={stat.label}
+          />
+        ))}
+      </div>
+    </MarketingSectionShell>
+  );
+}
+
+function CaseStudyChallenge({
+  content,
+}: {
+  content: CaseStudyContent["challenge"];
+}) {
+  return (
+    <MarketingSectionShell className="bg-background py-16 lg:py-[120px]">
+      <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-20">
+        <div className="flex min-w-0 flex-1 flex-col gap-6">
+          <div className="flex flex-col gap-4">
+            <EyebrowSm as="p" className={marketingEyebrowSection}>
+              {content.label}
+            </EyebrowSm>
+            <Heading2 className="text-pretty text-headings">{content.headline}</Heading2>
+          </div>
+          {content.paragraphs.map((paragraph) => (
+            <p key={paragraph} className={marketingSectionLead}>
+              {paragraph}
+            </p>
+          ))}
+        </div>
+        <div className="relative w-full max-w-[540px] shrink-0">
+          <div className="relative h-[363px] overflow-hidden rounded-[32px] bg-[#7ad595]">
+            <FlourishCircle
+              fill="var(--color-green-300)"
+              preserveAspectRatio="none"
+              className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 opacity-80"
+              aria-hidden
+            />
+            <img
+              src={content.imageSrc}
+              alt={content.imageAlt}
+              className="absolute left-1/2 top-1/2 z-10 h-[92%] w-auto max-w-none -translate-x-1/2 -translate-y-[52%] object-cover object-top"
+            />
+            <span className="absolute bottom-6 left-6 z-20 rounded-full bg-[#498059] px-4 py-2.5 text-xs font-semibold text-white">
+              {content.caption}
+            </span>
+          </div>
+        </div>
+      </div>
+    </MarketingSectionShell>
+  );
+}
+
+function CaseStudySolution({
+  content,
+}: {
+  content: CaseStudyContent["solution"];
+}) {
+  return (
+    <MarketingSectionShell className="bg-background py-16 lg:py-[120px]">
+      <div className="flex flex-col gap-16">
+        <div className="mx-auto flex max-w-[800px] flex-col items-center gap-4 text-center">
+          <EyebrowSm as="p" className={marketingEyebrowSection}>
+            {content.label}
+          </EyebrowSm>
+          <Heading2 className="text-pretty text-headings">{content.headline}</Heading2>
+          <p className={marketingSectionLead}>{content.summary}</p>
+        </div>
+        <div className="grid gap-8 lg:grid-cols-3">
+          {content.cards.map((card) => {
+            const Icon = card.icon;
+
+            return (
+              <Card
+                key={card.title}
+                className="rounded-2xl border border-border bg-card p-8 shadow-none"
+              >
+                <CardContent className="flex flex-col gap-5 p-0">
+                  <IconOffset
+                    icon={<Icon className="size-6 text-gray-800" aria-hidden />}
+                    variant={card.iconVariant}
+                    color={card.iconColor}
+                  />
+                  <div className="flex flex-col gap-2">
+                    <Heading4 className="font-serif text-headings">{card.title}</Heading4>
+                    <p className={marketingBody}>{card.body}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+      </div>
+    </MarketingSectionShell>
+  );
+}
+
+function CaseStudyResults({
+  content,
+}: {
+  content: CaseStudyContent["results"];
+}) {
+  return (
+    <MarketingSectionShell className="bg-background py-16 lg:py-[120px]">
+      <div className="overflow-hidden rounded-[32px] bg-blue-900 px-6 py-16 lg:rounded-[56px] lg:px-16 lg:py-[120px]">
+        <div className="mx-auto flex max-w-[900px] flex-col items-center gap-16">
+          <div className="flex flex-col items-center gap-4 text-center">
+            <EyebrowSm as="p" className={marketingEyebrowHero}>
+              {content.label}
+            </EyebrowSm>
+            <Heading2 className="text-pretty text-white">{content.headline}</Heading2>
+          </div>
+          <div className="grid w-full gap-8 lg:grid-cols-3 lg:gap-0">
+            {content.stats.map((stat, index) => (
+              <div
+                key={stat.label}
+                className={cn(
+                  "flex flex-col gap-2 px-0 lg:px-6",
+                  index > 0 && "lg:border-l lg:border-blue-800"
+                )}
+              >
+                <Heading1 className="text-white">{stat.value}</Heading1>
+                <p className="text-base leading-relaxed tracking-tighter text-blue-200">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </MarketingSectionShell>
+  );
+}
+
+function CaseStudyQuote({ quote }: { quote: CaseStudyContent["quote"] }) {
+  return (
+    <MarketingSectionShell className="bg-background py-16 lg:px-24 lg:py-[120px] xl:px-60">
+      <div className="mx-auto flex max-w-[960px] flex-col items-center gap-8 text-center">
+        <FlourishQuoteLeft
+          size="xl"
+          fill="var(--color-primary)"
+          className="shrink-0"
+          aria-hidden
+        />
+        <blockquote className="font-serif text-[28px] font-semibold leading-[1.4] tracking-normal text-headings text-balance lg:text-4xl">
+          &ldquo;{quote.text}&rdquo;
+        </blockquote>
+        <figcaption className="flex flex-col gap-1">
+          <p className="text-lg tracking-tighter text-headings">{quote.attribution}</p>
+          <p className="text-sm text-gray-700">{quote.role}</p>
+        </figcaption>
+      </div>
+    </MarketingSectionShell>
+  );
+}

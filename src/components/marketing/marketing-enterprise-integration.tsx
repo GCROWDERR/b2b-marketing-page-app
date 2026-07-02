@@ -1,7 +1,10 @@
 import {
   Compare,
+  Embed,
+  ExternalLink,
   GlobeWorld,
   LockSecure,
+  Online,
   TallBuilding,
   type BankrateIcon,
 } from "@bankrate/icons-react";
@@ -82,24 +85,89 @@ const enterpriseOptions: IntegrationOption[] = [
   },
 ];
 
+const affiliateOptions: IntegrationOption[] = [
+  {
+    icon: ExternalLink,
+    iconVariant: 1,
+    iconColor: "blue",
+    title: "Link-based Programs",
+    body: "Deep link directly to specific financial products, calculators, or reviews.",
+  },
+  {
+    icon: Embed,
+    iconVariant: 2,
+    iconColor: "green",
+    title: "Widgets & Embeds",
+    body: "Interactive cards and comparison tools that keep users on your site longer.",
+  },
+  {
+    icon: Compare,
+    iconVariant: 3,
+    iconColor: "indigo",
+    title: "API / Data Feeds",
+    body: "Build custom experiences with our real-time rate data and product feeds.",
+  },
+  {
+    icon: Online,
+    iconVariant: 1,
+    iconColor: "yellow",
+    title: "Paid Media",
+    body: "Scalable solutions for media buyers looking for high-intent conversion.",
+  },
+];
+
 type MarketingEnterpriseIntegrationProps = {
-  variant?: "homepage" | "enterprise";
+  variant?: "homepage" | "enterprise" | "affiliate";
 };
 
 export function MarketingEnterpriseIntegration({
   variant = "homepage",
 }: MarketingEnterpriseIntegrationProps) {
   const isEnterprise = variant === "enterprise";
-  const options = isEnterprise ? enterpriseOptions : homepageOptions;
+  const isAffiliate = variant === "affiliate";
+  const options = isAffiliate
+    ? affiliateOptions
+    : isEnterprise
+      ? enterpriseOptions
+      : homepageOptions;
 
   return (
     <MarketingSectionShell
-      id={isEnterprise ? "integration-options" : undefined}
+      id={isEnterprise ? "integration-options" : isAffiliate ? "affiliate-formats" : undefined}
       className={cn(
-        "scroll-mt-[calc(82px+1rem)] bg-background"
+        "scroll-mt-[calc(82px+1rem)] bg-background",
+        isAffiliate && "py-16 lg:py-20"
       )}
     >
-      {isEnterprise ? (
+      {isAffiliate ? (
+        <div className="flex flex-col gap-16">
+          <Heading2 className="text-center text-pretty text-headings">
+            Choose the format that fits your setup
+          </Heading2>
+          <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+            {options.map((opt) => {
+              const OptionIcon = opt.icon;
+
+              return (
+                <Card
+                  key={opt.title}
+                  className="flex flex-col gap-5 rounded-lg border border-border bg-card p-8 shadow-none ring-0"
+                >
+                  <IconOffset
+                    variant={opt.iconVariant}
+                    color={opt.iconColor}
+                    icon={<OptionIcon className={marketingCardIcon} />}
+                  />
+                  <CardContent className="flex flex-col gap-2 p-0">
+                    <Heading4 className="text-headings">{opt.title}</Heading4>
+                    <p className={marketingBody}>{opt.body}</p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      ) : isEnterprise ? (
         <div className="flex flex-col gap-16">
           <div className="max-w-(--section-copy)">
             <EyebrowSm as="p" className={marketingEyebrowSection}>

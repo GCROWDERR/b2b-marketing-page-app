@@ -16,6 +16,25 @@ export type MarketingProofStatDefinition = Pick<
   "value" | "suffix" | "label"
 >;
 
+export type MarketingHighlightStatDefinition = {
+  value: string;
+  title: string;
+  body: string;
+};
+
+export const AFFILIATE_PROOF_STATS: MarketingHighlightStatDefinition[] = [
+  {
+    value: "3.2x",
+    title: "average revenue lift vs. display ads",
+    body: "Partners switching from generic display ads to high-intent Bankrate widgets see immediate RPM increases.",
+  },
+  {
+    value: "Top 5%",
+    title: "payout rate among partners",
+    body: "Our performance benchmarks consistently rank in the highest tier of the finance affiliate industry.",
+  },
+];
+
 export const ENTERPRISE_PROOF_STATS: MarketingProofStatDefinition[] = [
   {
     value: "#1",

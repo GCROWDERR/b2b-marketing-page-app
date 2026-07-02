@@ -1,4 +1,5 @@
 import { Checkmark } from "@bankrate/icons-react";
+import { Link } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -26,7 +27,7 @@ const enterpriseContent = {
   kicker: "Fortune 50 Technology Company",
   body: "By integrating a private mortgage auction directly into their employee benefits portal, this global technology leader enabled their workforce to access rates substantially lower than the national average.",
   cta: "Read the full case study",
-  ctaHref: "#",
+  ctaHref: "/case-studies/amazon",
   outcomes: [
     "98% employee satisfaction score",
     "Seamless SSO integration",
@@ -75,7 +76,7 @@ export function MarketingEnterpriseCaseStudies({
                   className="h-auto w-fit justify-start p-0 text-base font-normal"
                   asChild
                 >
-                  <a href={enterpriseContent.ctaHref}>{enterpriseContent.cta}</a>
+                  <Link to={enterpriseContent.ctaHref}>{enterpriseContent.cta}</Link>
                 </Button>
               </div>
               <CardContent className="w-full shrink-0 rounded-2xl bg-[#f9f9fc] p-8 lg:max-w-[400px]">
