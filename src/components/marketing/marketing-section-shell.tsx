@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 
+import { SectionShell } from "@/components/common/section-shell";
 import { cn } from "@/lib/utils";
 
 type MarketingSectionShellProps = {
@@ -27,18 +28,34 @@ export function MarketingSectionShell({
   variant = "default",
   fullBleed = false,
 }: MarketingSectionShellProps) {
+  if (variant === "hero") {
+    return (
+      <section
+        id={id}
+        className={cn(variantPadding.hero, className)}
+        style={style}
+      >
+        {fullBleed ? (
+          children
+        ) : (
+          <div className="mx-auto w-full max-w-(--section-main)">{children}</div>
+        )}
+      </section>
+    );
+  }
+
+  if (fullBleed) {
+    return (
+      <section id={id} className={cn(variantPadding.default, className)} style={style}>
+        {children}
+      </section>
+    );
+  }
+
   return (
-    <section
-      id={id}
-      className={cn(variantPadding[variant], className)}
-      style={style}
-    >
-      {fullBleed ? (
-        children
-      ) : (
-        <div className="mx-auto w-full max-w-(--section-main)">{children}</div>
-      )}
-    </section>
+    <SectionShell id={id} className={className} style={style}>
+      {children}
+    </SectionShell>
   );
 }
 

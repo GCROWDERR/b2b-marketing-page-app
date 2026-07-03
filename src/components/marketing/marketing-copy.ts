@@ -33,10 +33,3 @@ export const marketingEyebrowHero = "text-blue-300";
  * (sentence-case, blue-800, not uppercase eyebrow).
  */
 export const marketingCardKicker = "text-lg tracking-tighter text-blue-800";
-
-/**
- * Card footer CTA — brand homepage next-steps uses size="lg" but keeps text-sm
- * (B2B t-button lg bumps to text-lg; override to match brand).
- */
-export const marketingCardCtaButton =
-  "min-h-12 px-6 text-sm font-semibold tracking-tight";

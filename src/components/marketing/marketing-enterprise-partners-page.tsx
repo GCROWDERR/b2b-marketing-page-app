@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { Button, dispatchHeroButtonRadiusClass } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { EyebrowLg, Heading1 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
@@ -30,16 +30,8 @@ function EnterprisePartnersHero() {
         financial experiences for enterprise partners — at scale.
       </p>
       <div className="mt-8">
-        <Button
-          variant="primary"
-          size="lg"
-          className={cn(
-            dispatchHeroButtonRadiusClass,
-            "h-12 min-w-[240px] text-sm font-semibold"
-          )}
-          asChild
-        >
-          <a href="#integration-options">See integration options</a>
+        <Button size="lg" href="#integration-options" className="min-w-[240px]">
+          See integration options
         </Button>
       </div>
     </MarketingBrushHeroShell>

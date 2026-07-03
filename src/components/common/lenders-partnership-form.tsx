@@ -379,13 +379,7 @@ export function LendersPartnershipForm({
         </div>
       )}
 
-      <Button
-        type="submit"
-        variant="primary"
-        size="lg"
-        disabled={submitting}
-        className="h-12 w-fit px-7 text-lg font-bold"
-      >
+      <Button type="submit" size="lg" disabled={submitting} className="w-fit">
         {submitting ? "Sending…" : "Submit Request"}
       </Button>
 

@@ -1,5 +1,5 @@
 import { CircleEmphasis } from "@/components/common/flourish/circle-emphasis";
-import { Button, dispatchHeroButtonRadiusClass } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { FlourishSparkle } from "@/components/ui/flourish";
 import { Heading1 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
@@ -97,16 +97,8 @@ export function MarketingEnterpriseHero() {
                   programs, integrations, and team.
                 </p>
               </div>
-              <Button
-                variant="primary"
-                size="lg"
-                className={cn(
-                  dispatchHeroButtonRadiusClass,
-                  "h-12 w-full max-w-[240px] text-sm font-semibold"
-                )}
-                asChild
-              >
-                <a href="#partner-paths">Choose a partnership path</a>
+              <Button size="lg" href="#partner-paths" className="w-full max-w-[240px]">
+                Choose a partnership path
               </Button>
             </div>
           </div>

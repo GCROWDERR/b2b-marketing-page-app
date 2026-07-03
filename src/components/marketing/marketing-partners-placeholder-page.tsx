@@ -1,7 +1,6 @@
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 
-import { Button, dispatchHeroButtonRadiusClass } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { EyebrowLg, Heading1 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
@@ -42,16 +41,8 @@ export function MarketingPartnersPlaceholderPage({
           {title}
         </Heading1>
         <p className={cn("mt-6 max-w-[540px]", marketingHeroBody)}>{description}</p>
-        <Button
-          variant="primary"
-          size="lg"
-          className={cn(
-            dispatchHeroButtonRadiusClass,
-            "mt-10 h-12 px-6 text-sm font-semibold"
-          )}
-          asChild
-        >
-          <Link to="/#partner-paths">Back to partnership paths</Link>
+        <Button size="lg" href="/#partner-paths" className="mt-10">
+          Back to partnership paths
         </Button>
       </MarketingBrushHeroShell>
     </MarketingLayout>

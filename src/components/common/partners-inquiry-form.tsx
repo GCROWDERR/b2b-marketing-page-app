@@ -314,13 +314,7 @@ export function PartnersInquiryForm({
         )}
 
         <div className="mt-auto pt-2">
-          <Button
-            type="submit"
-            variant="primary"
-            size="lg"
-            disabled={submitting}
-            className="h-11 w-full rounded-xl px-6 text-[15px] font-semibold tracking-[-0.15px]"
-          >
+          <Button type="submit" size="lg" disabled={submitting} className="w-full">
             {submitting ? "Sending…" : submitLabel}
             {!submitting && <Send aria-hidden className="size-4" />}
           </Button>

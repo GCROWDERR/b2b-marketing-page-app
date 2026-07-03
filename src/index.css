@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @import "tw-animate-css";
-@import "./components/ui/button/button.css";
 @import "./components/common/site-nav-overrides.css";
 @plugin "@tailwindcss/typography";
 @config "../tailwind.config.js";

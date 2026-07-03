@@ -31,13 +31,12 @@ export function MarketingEnterpriseEthos() {
               </p>
             </div>
             <Button
-              variant="primary"
               size="lg"
               arrow
-              className="h-12 w-fit px-5 text-[15px] font-semibold"
-              asChild
+              href="#"
+              className="w-fit"
             >
-              <a href="#">Get in touch with our Partnership Team</a>
+              Get in touch with our Partnership Team
             </Button>
           </div>
 

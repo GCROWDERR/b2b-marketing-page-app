@@ -1,9 +1,6 @@
-import { Link } from "react-router-dom";
-
 import { DispatchHeroRateCards } from "@/components/dispatch/hero-rate-cards";
-import { Button, dispatchHeroButtonRadiusClass } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { CircledText } from "@/components/ui/circled-text";
-import { cn } from "@/lib/utils";
 
 /**
  * Hero shell from bankrate-dispatch `components/sections/hero.tsx`,
@@ -30,25 +27,16 @@ export function DispatchHero() {
           </div>
 
           <div className="flex flex-col gap-3 lg:flex-row lg:items-start lg:gap-6">
-            <Button
-              variant="primary"
-              size="lg"
-              className={cn(
-                dispatchHeroButtonRadiusClass,
-                "h-[42px] w-full max-w-[240px] text-sm font-semibold lg:h-11 lg:max-w-none lg:text-base lg:font-bold"
-              )}
-              asChild
-            >
-              <a href="#partner-paths">Choose a partnership path</a>
+            <Button size="lg" href="#partner-paths" className="w-full max-w-[240px] lg:w-auto">
+              Choose a partnership path
             </Button>
             <Button
-              variant="outline"
-              color="white"
+              variant="ghost"
               size="lg"
-              className={cn(dispatchHeroButtonRadiusClass, "hidden h-11 lg:inline-flex")}
-              asChild
+              href="/#partner-paths"
+              className="hidden text-white hover:bg-white/10 hover:text-white lg:inline-flex"
             >
-              <Link to="/#partner-paths">Explore partner programs</Link>
+              Explore partner programs
             </Button>
           </div>
         </div>

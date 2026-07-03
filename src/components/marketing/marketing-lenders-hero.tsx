@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
 import { LineEmphasis } from "@/components/common/flourish/line-emphasis";
-import { Button, dispatchHeroButtonRadiusClass } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { FlourishSparkle } from "@/components/ui/flourish";
 import { Heading1 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
@@ -58,16 +58,8 @@ export function MarketingLendersHero({
                 </Heading1>
                 <p className={cn("max-w-[534px]", marketingHeroBody)}>{description}</p>
               </div>
-              <Button
-                variant="primary"
-                size="lg"
-                className={cn(
-                  dispatchHeroButtonRadiusClass,
-                  "h-12 w-full max-w-[240px] text-sm font-semibold"
-                )}
-                asChild
-              >
-                <a href={ctaHref}>{ctaLabel}</a>
+              <Button size="lg" href={ctaHref} className="w-full max-w-[240px]">
+                {ctaLabel}
               </Button>
             </div>
           </div>

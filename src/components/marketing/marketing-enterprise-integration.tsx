@@ -198,10 +198,10 @@ export function MarketingEnterpriseIntegration({
                       variant="link"
                       size="sm"
                       arrow
+                      href="#contact-sales"
                       className="mt-auto h-auto justify-start p-0 text-sm font-normal"
-                      asChild
                     >
-                      <a href="#contact-sales">Learn more</a>
+                      Learn more
                     </Button>
                   </CardContent>
                 </Card>

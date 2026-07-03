@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { Link } from "react-router-dom";
 import type { BankrateIcon } from "@bankrate/icons-react";
 
 import { CornerEmphasis } from "@/components/common/flourish/corner-emphasis";
@@ -20,7 +19,7 @@ import {
 import { Heading3 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingBody, marketingCardCtaButton, marketingCardIcon, marketingCardKicker } from "./marketing-copy";
+import { marketingBody, marketingCardIcon, marketingCardKicker } from "./marketing-copy";
 
 /** Card shell from brand-identity homepage next-steps tiles. */
 export const marketingPathCardClassName =
@@ -72,8 +71,8 @@ export function MarketingPathCard({
       </CardContent>
       <CardFooter className="mt-auto border-0 bg-transparent p-0">
         {footer ?? (
-          <Button size="sm" arrow className={marketingCardCtaButton} asChild>
-            <Link to={href}>{cta}</Link>
+          <Button size="lg" arrow href={href}>
+            {cta}
           </Button>
         )}
       </CardFooter>

@@ -1,5 +1,4 @@
 import { Checkmark } from "@bankrate/icons-react";
-import { Link } from "react-router-dom";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -73,10 +72,10 @@ export function MarketingEnterpriseCaseStudies({
                   variant="link"
                   size="lg"
                   arrow
+                  href={enterpriseContent.ctaHref}
                   className="h-auto w-fit justify-start p-0 text-base font-normal"
-                  asChild
                 >
-                  <Link to={enterpriseContent.ctaHref}>{enterpriseContent.cta}</Link>
+                  {enterpriseContent.cta}
                 </Button>
               </div>
               <CardContent className="w-full shrink-0 rounded-2xl bg-[#f9f9fc] p-8 lg:max-w-[400px]">
@@ -113,14 +112,8 @@ export function MarketingEnterpriseCaseStudies({
             <Heading2 className="text-pretty text-headings">{content.heading}</Heading2>
             <p className={marketingSectionLead}>{content.body}</p>
           </div>
-          <Button
-            variant="primary"
-            size="lg"
-            arrow
-            className="h-12 w-fit px-5 text-[15px] font-semibold"
-            asChild
-          >
-            <a href={content.ctaHref}>{content.cta}</a>
+          <Button size="lg" arrow href={content.ctaHref}>
+            {content.cta}
           </Button>
         </div>
       </div>
