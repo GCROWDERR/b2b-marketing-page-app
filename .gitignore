@@ -9,7 +9,8 @@ dist
 .env
 .env.*
 !.env.example
-.npmrc
+# Local overrides only — committed .npmrc uses ${GITHUB_TOKEN} (no secrets)
+.npmrc.local
 
 # Editor / OS
 .DS_Store

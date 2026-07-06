@@ -1,8 +1,11 @@
-# Copy to `.npmrc` locally (gitignored). Requires a GitHub token with read:packages.
+# Local overrides (optional). The repo `.npmrc` uses ${GITHUB_TOKEN} for CI/Vercel.
 #
-#   cp .npmrc.example .npmrc
+# Local dev:
+#   export GITHUB_TOKEN=$(gh auth token)   # needs read:packages for @bankrate
+#   npm install
 #
-# Authenticate: export GITHUB_TOKEN=ghp_...  (or use `gh auth token`)
+# Vercel: add GITHUB_TOKEN in Project → Settings → Environment Variables
+# (PAT or fine-grained token with read:packages on bankrate org packages).
 #
 @bankrate:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
