@@ -7,6 +7,7 @@ import { BrushHeroShell } from "../shared/brush-hero-shell";
 import { CaseStudies } from "../shared/case-studies";
 import { Integration } from "../shared/integration";
 import { StatsStrip } from "../shared/stats-strip";
+import { ENTERPRISE_WHY_STATS } from "../shared/stat-tooltips";
 import {
   SupplyHowItWorks,
   enterpriseHowItWorksSteps,
@@ -47,7 +48,14 @@ export function EnterprisePage() {
         steps={enterpriseHowItWorksSteps}
         brushBackground
       />
-      <StatsStrip variant="enterprise" />
+      <StatsStrip
+        stats={ENTERPRISE_WHY_STATS}
+        eyebrow="Why Bankrate"
+        heading="The financial platform your audience already trusts"
+        headingAlign="center"
+        stackClassName="gap-20"
+        className="py-16 lg:py-[120px]"
+      />
       <CaseStudies />
       <PartnersSalesForm variant="enterprise" />
     </Layout>

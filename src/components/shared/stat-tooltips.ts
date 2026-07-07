@@ -4,25 +4,36 @@ import type { StatTooltipData } from "./stat-tooltip";
 export const BANKRATE_METHODOLOGY_HREF =
   "https://www.bankrate.com/mortgages/bankrate-low-offers-methodology/";
 
-export type StatDefinition = {
+/** Tile stat for `StatsStrip` — tooltip is optional and controlled via `showTooltips`. */
+export type StatsStripTileStat = {
   value: string;
   suffix?: boolean;
   label: string;
-  tooltip: StatTooltipData;
+  tooltip?: StatTooltipData;
 };
 
-export type ProofStatDefinition = Pick<
-  StatDefinition,
-  "value" | "suffix" | "label"
->;
-
-export type HighlightStatDefinition = {
+/** Navy highlight cards for `StatsStrip layout="highlight"`. */
+export type StatsStripHighlightStat = {
   value: string;
   title: string;
   body: string;
 };
 
-export const DEMAND_PROOF_STATS: HighlightStatDefinition[] = [
+/** @deprecated Use StatsStripTileStat */
+export type StatDefinition = StatsStripTileStat & {
+  tooltip: StatTooltipData;
+};
+
+/** @deprecated Use StatsStripTileStat */
+export type ProofStatDefinition = Pick<
+  StatsStripTileStat,
+  "value" | "suffix" | "label"
+>;
+
+/** @deprecated Use StatsStripHighlightStat */
+export type HighlightStatDefinition = StatsStripHighlightStat;
+
+export const DEMAND_PROOF_STATS: StatsStripHighlightStat[] = [
   {
     value: "3.2x",
     title: "average revenue lift vs. display ads",
@@ -35,7 +46,7 @@ export const DEMAND_PROOF_STATS: HighlightStatDefinition[] = [
   },
 ];
 
-export const ENTERPRISE_PROOF_STATS: ProofStatDefinition[] = [
+export const ENTERPRISE_PROOF_STATS: StatsStripTileStat[] = [
   {
     value: "#1",
     label: "Destination for organic financial search.",
@@ -53,7 +64,7 @@ export const ENTERPRISE_PROOF_STATS: ProofStatDefinition[] = [
   },
 ];
 
-export const ENTERPRISE_WHY_STATS: ProofStatDefinition[] = [
+export const ENTERPRISE_WHY_STATS: StatsStripTileStat[] = [
   {
     value: "100M",
     suffix: true,
@@ -73,7 +84,7 @@ export const ENTERPRISE_WHY_STATS: ProofStatDefinition[] = [
   },
 ];
 
-export const ENTERPRISE_STATS: StatDefinition[] = [
+export const ENTERPRISE_STATS: StatsStripTileStat[] = [
   {
     value: "100",
     suffix: true,
@@ -117,7 +128,7 @@ export const ENTERPRISE_STATS: StatDefinition[] = [
   },
 ];
 
-export const SUPPLY_STATS: StatDefinition[] = [
+export const SUPPLY_STATS: StatsStripTileStat[] = [
   {
     value: "100",
     suffix: true,
@@ -138,15 +149,6 @@ export const SUPPLY_STATS: StatDefinition[] = [
     label: "Monthly mortgage shoppers",
     tooltip: {
       body: "Monthly mortgage shoppers represent unique visitors to Bankrate mortgage content and rate comparison tools. Volume reflects aggregate audience reach across purchase, refinance, and home equity journeys.",
-      linkText: "Learn more about our methodology.",
-      linkHref: BANKRATE_METHODOLOGY_HREF,
-    },
-  },
-  {
-    value: "#1",
-    label: "Most trusted mortgage site",
-    tooltip: {
-      body: "Bankrate has been helping consumers compare financial products for decades. Trust rankings reflect consumer perception surveys and third-party recognition of Bankrate as a leading personal finance destination.",
       linkText: "Learn more about our methodology.",
       linkHref: BANKRATE_METHODOLOGY_HREF,
     },

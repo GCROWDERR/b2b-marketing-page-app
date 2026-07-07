@@ -21,7 +21,10 @@ export function StatTile({ value, label, className }: StatTileProps) {
       )}
     >
       <div className="flex h-full w-[126px] shrink-0 items-center justify-center rounded-[14px] bg-blue-50 p-3">
-        <Heading2 as="span" className="text-primary">
+        <Heading2
+          as="span"
+          className="inline-flex items-baseline justify-center whitespace-nowrap text-primary"
+        >
           {value}
         </Heading2>
       </div>
@@ -33,5 +36,10 @@ export function StatTile({ value, label, className }: StatTileProps) {
 }
 
 export function StatPlus() {
-  return <FlourishPlus className="ml-0.5 mt-1 size-4" aria-hidden />;
+  return (
+    <FlourishPlus
+      className="relative -top-1 ml-0.5 inline size-4 shrink-0"
+      aria-hidden
+    />
+  );
 }
