@@ -1,4 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "framework": "nextjs"
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "redirects": [
+    { "source": "/lenders", "destination": "/supply", "permanent": true },
+    { "source": "/affiliate", "destination": "/demand", "permanent": true },
+    { "source": "/partners", "destination": "/", "permanent": true },
+    { "source": "/partners/lenders", "destination": "/supply", "permanent": true },
+    { "source": "/partners/enterprise", "destination": "/enterprise", "permanent": true },
+    { "source": "/partners/affiliate", "destination": "/demand", "permanent": true }
+  ]
 }
