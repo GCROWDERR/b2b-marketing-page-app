@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils";
@@ -107,7 +107,7 @@ function Button({
 
     if (href.startsWith("/")) {
       return (
-        <Link to={href} {...sharedAnchorProps}>
+        <Link href={href} {...sharedAnchorProps}>
           {content}
         </Link>
       );

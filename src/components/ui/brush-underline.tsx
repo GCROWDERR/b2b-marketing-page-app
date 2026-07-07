@@ -1,5 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 export const BRUSH_UNDERLINE_SRC = "/images/brush-underline.svg";
@@ -52,7 +52,7 @@ function BrushUnderlineText({
 
   return (
     <Link
-      to={href}
+      href={href}
       className={cn("relative z-[1] hover:opacity-90", textClassName)}
     >
       {children}

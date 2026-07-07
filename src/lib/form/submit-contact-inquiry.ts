@@ -7,7 +7,7 @@ export type SubmitContactInquiryResult =
 const RECAPTCHA_ACTION = "contact_submit";
 
 async function getRecaptchaToken(): Promise<string | null> {
-  const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
   if (!siteKey || typeof window.grecaptcha?.execute !== "function") {
     return null;
   }
@@ -24,18 +24,18 @@ export async function submitContactInquiry(
   },
   logTag: string
 ): Promise<SubmitContactInquiryResult> {
-  const apiUrl = import.meta.env.VITE_CONTACT_API_URL?.trim();
+  const apiUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL?.trim();
 
   if (!apiUrl) {
     await new Promise((resolve) => setTimeout(resolve, 400));
-    if (import.meta.env.DEV) {
-      console.info(`[${logTag}] Demo submit (set VITE_CONTACT_API_URL to post for real):`, payload);
+    if (process.env.NODE_ENV === "development") {
+      console.info(`[${logTag}] Demo submit (set NEXT_PUBLIC_CONTACT_API_URL to post for real):`, payload);
     }
     return { ok: true };
   }
 
   let recaptchaToken = "";
-  const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
   if (siteKey) {
     try {
       recaptchaToken = (await getRecaptchaToken()) ?? "";

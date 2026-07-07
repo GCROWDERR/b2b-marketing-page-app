@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   darkMode: ["class"],
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: ["./app/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
   /* Ensure marketing tokens exist in Vite dev (JIT occasionally skipped nested surface.* utilities). */
   safelist: [
     /* ESI header/footer injects Tailwind utilities at runtime (brand-identity-pages). */

@@ -1,0 +1,90 @@
+import type { ReactNode } from "react";
+
+import { SectionShell as BaseSectionShell } from "@/components/common/section-shell";
+import { cn } from "@/lib/utils";
+
+type SectionShellProps = {
+  children: ReactNode;
+  className?: string;
+  id?: string;
+  style?: React.CSSProperties;
+  /** default — brand SectionShell; hero — homepage hero padding */
+  variant?: "default" | "hero";
+  /** When true, children fill the section without the max-width container (full-bleed heroes). */
+  fullBleed?: boolean;
+};
+
+const variantPadding = {
+  default: "px-4 py-12 md:px-6 lg:py-16",
+  hero: "px-0 py-6 lg:py-10 lg:px-6 xl:px-20",
+} as const;
+
+/** Section wrapper from brand-identity-pages SectionShell — responsive padding + page width. */
+export function SectionShell({
+  children,
+  className,
+  id,
+  style,
+  variant = "default",
+  fullBleed = false,
+}: SectionShellProps) {
+  if (variant === "hero") {
+    return (
+      <section
+        id={id}
+        className={cn(variantPadding.hero, className)}
+        style={style}
+      >
+        {fullBleed ? (
+          children
+        ) : (
+          <div className="mx-auto w-full max-w-(--section-main)">{children}</div>
+        )}
+      </section>
+    );
+  }
+
+  if (fullBleed) {
+    return (
+      <section id={id} className={cn(variantPadding.default, className)} style={style}>
+        {children}
+      </section>
+    );
+  }
+
+  return (
+    <BaseSectionShell id={id} className={className} style={style}>
+      {children}
+    </BaseSectionShell>
+  );
+}
+
+/** Centered copy column — brand `--section-copy` (45rem / 720px). */
+export function CopyColumn({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={cn("mx-auto w-full max-w-(--section-copy)", className)}>
+      {children}
+    </div>
+  );
+}
+
+/** Lead / mission block width — brand pages often use ~846px. */
+export function LeadColumn({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
+  return (
+    <div className={cn("mx-auto w-full max-w-(--section-lead)", className)}>
+      {children}
+    </div>
+  );
+}

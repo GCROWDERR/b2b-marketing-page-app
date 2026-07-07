@@ -2,10 +2,10 @@ import { useEffect } from "react";
 
 const SCRIPT_ID = "recaptcha-v3-script";
 
-/** Loads reCAPTCHA v3 when VITE_RECAPTCHA_SITE_KEY is set (brand ContactForm pattern). */
+/** Loads reCAPTCHA v3 when NEXT_PUBLIC_RECAPTCHA_SITE_KEY is set (brand ContactForm pattern). */
 export function useRecaptchaScript() {
   useEffect(() => {
-    const siteKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY?.trim();
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY?.trim();
     if (!siteKey || document.getElementById(SCRIPT_ID)) {
       return;
     }

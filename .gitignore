@@ -3,6 +3,7 @@ node_modules
 
 # Build
 dist
+.next
 *.local
 
 # Environment
@@ -28,6 +29,3 @@ yarn-error.log*
 
 # TypeScript
 *.tsbuildinfo
-
-# Vite
-.vite
