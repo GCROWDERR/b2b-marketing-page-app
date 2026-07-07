@@ -11,6 +11,7 @@
     "build": "next build && rm -rf dist && cp -r out dist",
     "start": "next start",
     "figma:assets": "node scripts/download-figma-enterprise-assets.mjs",
+    "figma:case-study-assets": "node scripts/download-case-study-assets.mjs",
     "figma:mcp-assets": "node scripts/download-mcp-assets.mjs"
   },
   "dependencies": {

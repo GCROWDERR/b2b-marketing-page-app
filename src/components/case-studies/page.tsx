@@ -1,4 +1,4 @@
-import { FlourishCircle, FlourishQuoteLeft } from "@bankrate/icons-react";
+import { FlourishQuoteLeft } from "@bankrate/icons-react";
 
 import { IconOffset } from "@/components/common/flourish/icon-offset";
 import { Card, CardContent } from "@/components/ui/card";
@@ -6,6 +6,7 @@ import { EyebrowSm, Heading1, Heading2, Heading4 } from "@/components/ui/typogra
 import { cn } from "@/lib/utils";
 
 import type { CaseStudyContent } from "./types";
+import { CASE_STUDY_IMG } from "./assets";
 import {
   marketingBody,
   marketingEyebrowHero,
@@ -15,7 +16,6 @@ import {
 } from "../shared/copy";
 import { Layout } from "../shared/layout";
 import { SectionShell } from "../shared/section-shell";
-import { StatPlus, StatTile } from "../shared/stat-tile";
 
 type CaseStudyPageProps = {
   content: CaseStudyContent;
@@ -25,7 +25,6 @@ export function CaseStudyPage({ content }: CaseStudyPageProps) {
   return (
     <Layout>
       <CaseStudyHero content={content} />
-      <CaseStudyOverviewStats stats={content.overviewStats} />
       <CaseStudyChallenge content={content.challenge} />
       <CaseStudySolution content={content.solution} />
       <CaseStudyResults content={content.results} />
@@ -50,41 +49,16 @@ function CaseStudyHero({ content }: { content: CaseStudyContent }) {
             </Heading1>
             <p className={cn("max-w-[603px]", marketingHeroBody)}>{hero.summary}</p>
           </div>
-          <div className="flex flex-1 items-end justify-center px-6 pb-10 lg:items-center lg:px-10 lg:pb-0 lg:pt-32">
-            <div className="relative w-full max-w-[533px] overflow-hidden rounded-[48px] bg-primary">
+          <div className="flex flex-1 items-center justify-center px-6 pb-10 lg:px-10 lg:pb-0 lg:pt-32">
+            <div className="relative w-full max-w-[533px] overflow-hidden rounded-[48px]">
               <img
                 src={hero.imageSrc}
                 alt={hero.imageAlt}
-                className="mx-auto block h-auto w-full max-w-[420px] object-contain p-6 lg:max-w-none lg:p-10"
+                className="block h-auto w-full"
               />
             </div>
           </div>
         </div>
-      </div>
-    </SectionShell>
-  );
-}
-
-function CaseStudyOverviewStats({
-  stats,
-}: {
-  stats: CaseStudyContent["overviewStats"];
-}) {
-  return (
-    <SectionShell className="bg-background py-16 lg:py-[64px]">
-      <div className="grid gap-6 lg:grid-cols-3">
-        {stats.map((stat) => (
-          <StatTile
-            key={stat.label}
-            value={
-              <>
-                {stat.value}
-                {stat.suffix ? <StatPlus /> : null}
-              </>
-            }
-            label={stat.label}
-          />
-        ))}
       </div>
     </SectionShell>
   );
@@ -111,18 +85,18 @@ function CaseStudyChallenge({
             </p>
           ))}
         </div>
-        <div className="relative w-full max-w-[540px] shrink-0">
+        <div className="relative w-full max-w-[529px] shrink-0">
           <div className="relative h-[363px] overflow-hidden rounded-[32px] bg-[#7ad595]">
-            <FlourishCircle
-              fill="var(--color-green-300)"
-              preserveAspectRatio="none"
-              className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 opacity-80"
+            <img
+              src={CASE_STUDY_IMG.challengeCircle}
+              alt=""
               aria-hidden
+              className="pointer-events-none absolute left-[88px] top-[42px] z-0 h-[404px] w-[407px]"
             />
             <img
               src={content.imageSrc}
               alt={content.imageAlt}
-              className="absolute left-1/2 top-1/2 z-10 h-[92%] w-auto max-w-none -translate-x-1/2 -translate-y-[52%] object-cover object-top"
+              className="absolute left-[103px] top-[-27px] z-10 h-[468px] w-[355px] object-cover object-top"
             />
             <span className="absolute bottom-6 left-6 z-20 rounded-full bg-[#498059] px-4 py-2.5 text-xs font-semibold text-white">
               {content.caption}
