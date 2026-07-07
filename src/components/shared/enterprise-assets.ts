@@ -5,6 +5,8 @@ export const ENTERPRISE_IMG = {
   footerLogo: `${base}/footer-logo.svg`,
   footerHouse: `${base}/footer-house.svg`,
   heroPortrait: `${base}/hero-portrait.png`,
+  heroMobile: "/marketing/hub/mobile-hub-image.png",
+  heroMobile2x: "/marketing/hub/mobile-hub-image@2x.png",
   heroUnionBlob: `${base}/hero-union-blob.svg`,
   heroUnderline: `${base}/hero-underline.svg`,
   heroSparkline: `${base}/hero-sparkline.svg`,
