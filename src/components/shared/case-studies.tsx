@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { EyebrowSm, Heading1, Heading2 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingBody } from "./copy";
+import { marketingBody, marketingEyebrowSection } from "./copy";
 import { SectionShell } from "./section-shell";
 
 const caseStudyContent = {
@@ -28,7 +28,7 @@ export function CaseStudies() {
     <SectionShell className="bg-background py-16 lg:py-[120px]">
       <div className="flex flex-col gap-16">
         <div className="flex flex-col gap-4">
-          <EyebrowSm as="p" className="text-primary">
+          <EyebrowSm as="p" className={marketingEyebrowSection}>
             {caseStudyContent.eyebrow}
           </EyebrowSm>
           <Heading2 className="text-pretty text-headings">
@@ -43,7 +43,7 @@ export function CaseStudies() {
                 <Heading1 className="text-pretty text-headings">
                   {caseStudyContent.highlight}
                 </Heading1>
-                <EyebrowSm as="p" className="text-primary">
+                <EyebrowSm as="p" className={marketingEyebrowSection}>
                   {caseStudyContent.kicker}
                 </EyebrowSm>
               </div>

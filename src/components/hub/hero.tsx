@@ -88,8 +88,14 @@ export function HubHero() {
             <div className="flex max-w-[534px] flex-col gap-8">
               <div className="relative flex flex-col gap-8">
                 <Heading1 className="leading-[1.2] tracking-tight text-white lg:max-w-[778px]">
-                  Partnership paths built for how you{" "}
-                  <CircleEmphasis emphasis="go to market" />.
+                  <span className="relative z-[1]">
+                    Partnership paths built for how you{" "}
+                  </span>
+                  <CircleEmphasis
+                    className="relative z-0 [&_svg]:-z-[1]"
+                    emphasis="go to market"
+                  />
+                  <span className="relative z-[1]">.</span>
                 </Heading1>
                 <p className={cn("max-w-[534px]", marketingHeroBody)}>
                   Whether you lend on our marketplace, power a private audience, or
