@@ -1,14 +1,14 @@
 import { Compare, GlobeWorld, TallBuilding } from "@bankrate/icons-react";
 
-import { CASE_STUDY_IMG } from "./marketing-case-study-assets";
-import type { CaseStudyContent } from "./marketing-case-study-types";
+import { CASE_STUDY_IMG } from "./case-study-assets";
+import type { CaseStudyContent } from "./case-study-types";
 
 export const amazonCaseStudyContent: CaseStudyContent = {
   slug: "amazon",
   documentTitle: "Bankrate B2B — Amazon Case Study",
   hero: {
     label: "Case Study",
-    headline: "How Bankrate helped Amazon employees save $38K on their mortgages.",
+    headline: "How Bankrate helped Amazon employees save $73K on their mortgages.",
     summary:
       "By leveraging Bankrate's exclusive financial tools and partner network, Amazon turned employee home-buying into a competitive benefit.",
     imageSrc: CASE_STUDY_IMG.heroDevices,
@@ -61,7 +61,7 @@ export const amazonCaseStudyContent: CaseStudyContent = {
   },
   results: {
     label: "The Results",
-    headline: "Employees saved an average of $38K — and that's just the beginning.",
+    headline: "Employees saved an average of $73K — and that's just the beginning.",
     stats: [
       {
         value: "18%",

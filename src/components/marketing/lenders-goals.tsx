@@ -11,8 +11,8 @@ import {
 } from "@/lib/form/lenders-inquiry-types";
 
 import { LENDERS_IMG } from "./lenders-assets";
-import { marketingBody, marketingBodySm, marketingEyebrowSection, marketingSectionLeadCenter } from "./marketing-copy";
-import { MarketingLeadColumn, MarketingSectionShell } from "./marketing-section-shell";
+import { marketingBody, marketingBodySm, marketingEyebrowSection, marketingSectionLeadCenter } from "./copy";
+import { MarketingLeadColumn, MarketingSectionShell } from "./section-shell";
 
 const verticalCopy: Record<
   LendersVertical,

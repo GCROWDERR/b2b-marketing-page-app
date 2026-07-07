@@ -2,7 +2,7 @@ import type { CSSProperties, ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { MARKETING_BRUSH_IMG } from "./marketing-brush-assets";
+import { MARKETING_BRUSH_IMG } from "./brush-assets";
 
 type MarketingBrushSectionShellProps = {
   children: ReactNode;

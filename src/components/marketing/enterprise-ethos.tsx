@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Heading2 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingOnDarkBody } from "./marketing-copy";
-import { MarketingSectionShell } from "./marketing-section-shell";
+import { marketingOnDarkBody } from "./copy";
+import { MarketingSectionShell } from "./section-shell";
 
 const mosaicPhotos = [
   { src: ENTERPRISE_IMG.missionPhoto1, bg: "bg-purple-400" },

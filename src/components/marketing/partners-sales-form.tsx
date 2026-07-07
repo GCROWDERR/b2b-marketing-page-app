@@ -4,8 +4,8 @@ import { PartnersInquiryForm } from "@/components/common/partners-inquiry-form";
 import { Heading2 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingBody, marketingBodySm, marketingSectionLead } from "./marketing-copy";
-import { MarketingSectionShell } from "./marketing-section-shell";
+import { marketingBody, marketingBodySm, marketingSectionLead } from "./copy";
+import { MarketingSectionShell } from "./section-shell";
 
 type MarketingPartnersSalesFormProps = {
   variant?: "default" | "enterprise" | "affiliate";

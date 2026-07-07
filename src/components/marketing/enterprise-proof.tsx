@@ -1,9 +1,9 @@
 import { EyebrowSm, Heading2 } from "@/components/ui/typography";
 
-import { marketingEyebrowSection } from "./marketing-copy";
-import { MarketingStatPlus, MarketingStatTile } from "./marketing-stat-tile";
-import { ENTERPRISE_PROOF_STATS } from "./marketing-stat-tooltips";
-import { MarketingSectionShell } from "./marketing-section-shell";
+import { marketingEyebrowSection } from "./copy";
+import { MarketingStatPlus, MarketingStatTile } from "./stat-tile";
+import { ENTERPRISE_PROOF_STATS } from "./stat-tooltips";
+import { MarketingSectionShell } from "./section-shell";
 
 export function MarketingEnterpriseProof() {
   return (

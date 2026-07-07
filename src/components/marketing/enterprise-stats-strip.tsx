@@ -1,17 +1,17 @@
-import { MarketingStatPlus, MarketingStatTile } from "./marketing-stat-tile";
+import { MarketingStatPlus, MarketingStatTile } from "./stat-tile";
 import {
   AFFILIATE_PROOF_STATS,
   ENTERPRISE_STATS,
   ENTERPRISE_WHY_STATS,
   type MarketingStatDefinition,
-} from "./marketing-stat-tooltips";
-import { MarketingSectionShell } from "./marketing-section-shell";
+} from "./stat-tooltips";
+import { MarketingSectionShell } from "./section-shell";
 import { StatTooltip } from "./stat-tooltip";
 
 import { EyebrowSm, Heading1, Heading2, Heading3 } from "@/components/ui/typography";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-import { marketingEyebrowSection } from "./marketing-copy";
+import { marketingEyebrowSection } from "./copy";
 
 type MarketingEnterpriseStatsStripProps = {
   variant?: "homepage" | "enterprise" | "affiliate";

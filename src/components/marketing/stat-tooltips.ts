@@ -60,7 +60,7 @@ export const ENTERPRISE_WHY_STATS: MarketingProofStatDefinition[] = [
     label: "Annual unique visitors",
   },
   {
-    value: "$38K",
+    value: "$73K",
     label: "Average employee savings (private auction)",
   },
   {
@@ -85,7 +85,7 @@ export const ENTERPRISE_STATS: MarketingStatDefinition[] = [
     },
   },
   {
-    value: "$38k",
+    value: "$73k",
     label: "Avg savings",
     tooltip: {
       heading:

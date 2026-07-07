@@ -5,11 +5,11 @@ import { FlourishSparkle } from "@/components/ui/flourish";
 import { EyebrowSm, Heading2 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingBody, marketingEyebrowSection } from "./marketing-copy";
+import { marketingBody, marketingEyebrowSection } from "./copy";
 
 import { ENTERPRISE_IMG } from "./enterprise-assets";
 
-import { MarketingSectionShell } from "./marketing-section-shell";
+import { MarketingSectionShell } from "./section-shell";
 
 const items: { icon: string; content: ReactNode }[] = [
   {
@@ -46,10 +46,15 @@ const items: { icon: string; content: ReactNode }[] = [
 export function MarketingEnterpriseBenefits() {
   return (
     <MarketingSectionShell className="bg-background py-8 lg:py-8">
-      <div className="relative overflow-hidden rounded-[48px] bg-blue-200 px-8 py-14 lg:px-[72px] lg:py-14">
-        <FlourishSparkle className="right-8 top-0 hidden w-[71px] lg:block" width={71} height={90} />
+      <div className="relative">
+        <FlourishSparkle
+          className="right-8 -top-8 z-10 hidden w-[71px] lg:block"
+          width={71}
+          height={90}
+        />
 
-        <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-[88px]">
+        <div className="relative z-0 rounded-[48px] bg-blue-200 px-8 py-14 lg:px-[72px] lg:py-14">
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-center lg:gap-[88px]">
           <div className="max-w-[420px] shrink-0">
             <EyebrowSm as="p" className={marketingEyebrowSection}>
               The Benefits
@@ -83,6 +88,7 @@ export function MarketingEnterpriseBenefits() {
           </div>
         </div>
       </div>
+    </div>
     </MarketingSectionShell>
   );
 }

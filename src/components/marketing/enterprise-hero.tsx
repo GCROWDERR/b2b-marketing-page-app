@@ -5,8 +5,8 @@ import { Heading1 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
 import { ENTERPRISE_IMG } from "./enterprise-assets";
-import { marketingHeroBody } from "./marketing-copy";
-import { MarketingSectionShell } from "./marketing-section-shell";
+import { marketingHeroBody } from "./copy";
+import { MarketingSectionShell } from "./section-shell";
 
 function DownPaymentCard({ className }: { className?: string }) {
   return (

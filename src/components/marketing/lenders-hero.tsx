@@ -7,8 +7,8 @@ import { Heading1 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
 import { LENDERS_IMG } from "./lenders-assets";
-import { marketingHeroBody } from "./marketing-copy";
-import { MarketingSectionShell } from "./marketing-section-shell";
+import { marketingHeroBody } from "./copy";
+import { MarketingSectionShell } from "./section-shell";
 
 type MarketingLendersHeroProps = {
   headline?: ReactNode;

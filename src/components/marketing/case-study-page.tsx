@@ -5,17 +5,17 @@ import { Card, CardContent } from "@/components/ui/card";
 import { EyebrowSm, Heading1, Heading2, Heading4 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import type { CaseStudyContent } from "./marketing-case-study-types";
+import type { CaseStudyContent } from "./case-study-types";
 import {
   marketingBody,
   marketingEyebrowHero,
   marketingEyebrowSection,
   marketingHeroBody,
   marketingSectionLead,
-} from "./marketing-copy";
-import { MarketingLayout } from "./marketing-layout";
-import { MarketingSectionShell } from "./marketing-section-shell";
-import { MarketingStatPlus, MarketingStatTile } from "./marketing-stat-tile";
+} from "./copy";
+import { MarketingLayout } from "./layout";
+import { MarketingSectionShell } from "./section-shell";
+import { MarketingStatPlus, MarketingStatTile } from "./stat-tile";
 
 type MarketingCaseStudyPageProps = {
   content: CaseStudyContent;

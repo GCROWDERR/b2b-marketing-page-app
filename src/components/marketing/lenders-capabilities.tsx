@@ -2,8 +2,8 @@ import { LENDERS_IMG } from "./lenders-assets";
 
 import { EyebrowSm, Heading2, Heading3 } from "@/components/ui/typography";
 
-import { marketingBody, marketingEyebrowSection } from "./marketing-copy";
-import { MarketingCopyColumn, MarketingSectionShell } from "./marketing-section-shell";
+import { marketingBody, marketingEyebrowSection } from "./copy";
+import { MarketingCopyColumn, MarketingSectionShell } from "./section-shell";
 
 const capabilities = [
   {

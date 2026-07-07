@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 
-import { MarketingEnterpriseIntegration } from "./marketing-enterprise-integration";
-import { MarketingEnterpriseStatsStrip } from "./marketing-enterprise-stats-strip";
-import { MarketingLayout } from "./marketing-layout";
-import { MarketingLendersHero } from "./marketing-lenders-hero";
-import { MarketingLendersRequirements } from "./marketing-lenders-requirements";
-import { MarketingPartnersSalesForm } from "./marketing-partners-sales-form";
+import { MarketingEnterpriseIntegration } from "./enterprise-integration";
+import { MarketingEnterpriseStatsStrip } from "./enterprise-stats-strip";
+import { MarketingLayout } from "./layout";
+import { MarketingLendersHero } from "./lenders-hero";
+import { MarketingLendersRequirements } from "./lenders-requirements";
+import { MarketingPartnersSalesForm } from "./partners-sales-form";
 
 export function MarketingAffiliatePage() {
   useEffect(() => {

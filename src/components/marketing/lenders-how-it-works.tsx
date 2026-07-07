@@ -8,9 +8,9 @@ import {
 import { EyebrowSm, Heading2, Heading4 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingBodySm, marketingCardIcon, marketingEyebrowSection } from "./marketing-copy";
-import { MarketingBrushSectionShell } from "./marketing-brush-section-shell";
-import { MarketingCopyColumn, MarketingSectionShell } from "./marketing-section-shell";
+import { marketingBodySm, marketingCardIcon, marketingEyebrowSection } from "./copy";
+import { MarketingBrushSectionShell } from "./brush-section-shell";
+import { MarketingCopyColumn, MarketingSectionShell } from "./section-shell";
 
 type HowItWorksStep = {
   icon: BankrateIcon;

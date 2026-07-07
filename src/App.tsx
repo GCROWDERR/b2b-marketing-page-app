@@ -1,17 +1,17 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 
-import { MarketingAppShell } from "@/components/marketing/marketing-app-shell";
-import { MarketingAffiliatePage } from "@/components/marketing/marketing-affiliate-page";
-import { MarketingAmazonCaseStudyPage } from "@/components/marketing/marketing-amazon-case-study-page";
-import { MarketingEnterprisePage } from "@/components/marketing/marketing-enterprise-page";
-import { MarketingEnterprisePartnersPage } from "@/components/marketing/marketing-enterprise-partners-page";
-import { MarketingLendersPage } from "@/components/marketing/marketing-lenders-page";
+import { MarketingAppShell } from "@/components/marketing/app-shell";
+import { MarketingAffiliatePage } from "@/components/marketing/affiliate-page";
+import { MarketingAmazonCaseStudyPage } from "@/components/marketing/amazon-case-study-page";
+import { MarketingHubPage } from "@/components/marketing/hub-page";
+import { MarketingEnterprisePartnersPage } from "@/components/marketing/enterprise-partners-page";
+import { MarketingLendersPage } from "@/components/marketing/lenders-page";
 
 export default function App() {
   return (
     <MarketingAppShell>
       <Routes>
-        <Route path="/" element={<MarketingEnterprisePage />} />
+        <Route path="/" element={<MarketingHubPage />} />
         <Route path="/lenders" element={<MarketingLendersPage />} />
         <Route path="/enterprise" element={<MarketingEnterprisePartnersPage />} />
         <Route path="/case-studies/amazon" element={<MarketingAmazonCaseStudyPage />} />

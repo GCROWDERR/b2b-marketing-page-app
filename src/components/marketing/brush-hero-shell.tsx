@@ -2,8 +2,8 @@ import type { ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
-import { MARKETING_BRUSH_IMG } from "./marketing-brush-assets";
-import { MarketingSectionShell } from "./marketing-section-shell";
+import { MARKETING_BRUSH_IMG } from "./brush-assets";
+import { MarketingSectionShell } from "./section-shell";
 
 type MarketingBrushHeroShellProps = {
   children: ReactNode;

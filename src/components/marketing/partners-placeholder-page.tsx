@@ -4,9 +4,9 @@ import { Button } from "@/components/ui/button";
 import { EyebrowLg, Heading1 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingEyebrowHero, marketingHeroBody } from "./marketing-copy";
-import { MarketingLayout } from "./marketing-layout";
-import { MarketingBrushHeroShell } from "./marketing-brush-hero-shell";
+import { marketingEyebrowHero, marketingHeroBody } from "./copy";
+import { MarketingLayout } from "./layout";
+import { MarketingBrushHeroShell } from "./brush-hero-shell";
 
 type MarketingPartnersPlaceholderPageProps = {
   documentTitle: string;

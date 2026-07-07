@@ -4,17 +4,17 @@ import { Button } from "@/components/ui/button";
 import { EyebrowLg, Heading1 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingHeroBody } from "./marketing-copy";
-import { MarketingBrushHeroShell } from "./marketing-brush-hero-shell";
-import { MarketingEnterpriseCaseStudies } from "./marketing-enterprise-case-studies";
-import { MarketingEnterpriseIntegration } from "./marketing-enterprise-integration";
-import { MarketingEnterpriseStatsStrip } from "./marketing-enterprise-stats-strip";
+import { marketingHeroBody } from "./copy";
+import { MarketingBrushHeroShell } from "./brush-hero-shell";
+import { MarketingEnterpriseCaseStudies } from "./enterprise-case-studies";
+import { MarketingEnterpriseIntegration } from "./enterprise-integration";
+import { MarketingEnterpriseStatsStrip } from "./enterprise-stats-strip";
 import {
   MarketingLendersHowItWorks,
   marketingEnterpriseHowItWorksSteps,
-} from "./marketing-lenders-how-it-works";
-import { MarketingLayout } from "./marketing-layout";
-import { MarketingPartnersSalesForm } from "./marketing-partners-sales-form";
+} from "./lenders-how-it-works";
+import { MarketingLayout } from "./layout";
+import { MarketingPartnersSalesForm } from "./partners-sales-form";
 
 function EnterprisePartnersHero() {
   return (
@@ -58,7 +58,7 @@ export function MarketingEnterprisePartnersPage() {
         brushBackground
       />
       <MarketingEnterpriseStatsStrip variant="enterprise" />
-      <MarketingEnterpriseCaseStudies variant="enterprise" />
+      <MarketingEnterpriseCaseStudies />
       <MarketingPartnersSalesForm variant="enterprise" />
     </MarketingLayout>
   );

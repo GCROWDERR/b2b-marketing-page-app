@@ -18,8 +18,8 @@ import {
 } from "@/components/ui/accordion";
 import { EyebrowSm, Heading2, Heading4 } from "@/components/ui/typography";
 
-import { marketingBodySm, marketingCardIcon, marketingEyebrowSection } from "./marketing-copy";
-import { MarketingCopyColumn, MarketingSectionShell } from "./marketing-section-shell";
+import { marketingBodySm, marketingCardIcon, marketingEyebrowSection } from "./copy";
+import { MarketingCopyColumn, MarketingSectionShell } from "./section-shell";
 
 const requirements: {
   icon: BankrateIcon;

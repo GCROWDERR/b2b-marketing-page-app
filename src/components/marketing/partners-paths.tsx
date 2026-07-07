@@ -3,9 +3,9 @@ import { Bank, FlourishArrows3, GlobeWorld, TallBuilding, type BankrateIcon } fr
 import type { IconOffsetColor, IconOffsetVariant } from "@/components/common/flourish/icon-offset";
 import { Heading2 } from "@/components/ui/typography";
 
-import { MarketingPathCard } from "./marketing-path-card";
-import { marketingSectionLeadCenter } from "./marketing-copy";
-import { MarketingCopyColumn, MarketingSectionShell } from "./marketing-section-shell";
+import { MarketingPathCard } from "./path-card";
+import { marketingSectionLeadCenter } from "./copy";
+import { MarketingCopyColumn, MarketingSectionShell } from "./section-shell";
 
 const paths: {
   id: string;
@@ -91,7 +91,7 @@ export function MarketingPartnersPaths() {
               description={path.description}
               cta={path.cta}
               href={path.href}
-              className="w-full max-w-[25rem]"
+              className="w-full md:max-w-[25rem] md:flex-1"
             />
           ))}
         </div>

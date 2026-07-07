@@ -19,8 +19,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { EyebrowSm, Heading2, Heading4 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingBody, marketingCardIcon, marketingEyebrowSection } from "./marketing-copy";
-import { MarketingSectionShell } from "./marketing-section-shell";
+import { marketingBody, marketingCardIcon, marketingEyebrowSection } from "./copy";
+import { MarketingSectionShell } from "./section-shell";
 
 type IntegrationOption = {
   icon: BankrateIcon;
@@ -221,7 +221,7 @@ export function MarketingEnterpriseIntegration({
             {options.map((opt) => (
               <Card
                 key={opt.title}
-                className="rounded-[24px] border-0 bg-card p-6 shadow-none ring-0"
+                className="rounded-[24px] border border-gray-200 bg-card p-6 shadow-none ring-0"
               >
                 <CardContent className="p-0">
                   <Heading4 className="text-headings">{opt.title}</Heading4>

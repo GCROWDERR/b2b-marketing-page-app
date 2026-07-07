@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
-import { amazonCaseStudyContent } from "./marketing-case-study-content-amazon";
-import { MarketingCaseStudyPage } from "./marketing-case-study-page";
+import { amazonCaseStudyContent } from "./case-study-content-amazon";
+import { MarketingCaseStudyPage } from "./case-study-page";
 
 export function MarketingAmazonCaseStudyPage() {
   useEffect(() => {

@@ -19,7 +19,7 @@ import {
 import { Heading3 } from "@/components/ui/typography";
 import { cn } from "@/lib/utils";
 
-import { marketingBody, marketingCardIcon, marketingCardKicker } from "./marketing-copy";
+import { marketingBody, marketingCardIcon, marketingCardKicker } from "./copy";
 
 /** Card shell from brand-identity homepage next-steps tiles. */
 export const marketingPathCardClassName =

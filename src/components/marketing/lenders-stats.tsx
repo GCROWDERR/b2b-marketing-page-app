@@ -1,6 +1,6 @@
-import { MarketingStatPlus, MarketingStatTile } from "./marketing-stat-tile";
-import { LENDERS_STATS } from "./marketing-stat-tooltips";
-import { MarketingSectionShell } from "./marketing-section-shell";
+import { MarketingStatPlus, MarketingStatTile } from "./stat-tile";
+import { LENDERS_STATS } from "./stat-tooltips";
+import { MarketingSectionShell } from "./section-shell";
 import { StatTooltip } from "./stat-tooltip";
 
 import { TooltipProvider } from "@/components/ui/tooltip";

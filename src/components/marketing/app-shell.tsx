@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 
-import { MarketingFooter } from "./marketing-footer";
-import { MarketingNav } from "./marketing-nav";
-import { MarketingNavRouteSync } from "./marketing-nav-route-sync";
+import { MarketingFooter } from "./footer";
+import { MarketingNav } from "./nav";
+import { MarketingNavRouteSync } from "./nav-route-sync";
 
 type MarketingAppShellProps = {
   children: ReactNode;
