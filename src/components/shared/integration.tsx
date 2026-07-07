@@ -211,12 +211,14 @@ export function Integration({
         </div>
       ) : (
         <>
-          <EyebrowSm as="p" className={marketingEyebrowSection}>
-            Integration Options
-          </EyebrowSm>
-          <Heading2 className="mt-4 max-w-(--section-copy) text-pretty text-headings">
-            Technology that fits your business.
-          </Heading2>
+          <div className="mx-auto flex max-w-(--section-copy) flex-col items-center gap-4 text-center">
+            <EyebrowSm as="p" className={marketingEyebrowSection}>
+              Integration Options
+            </EyebrowSm>
+            <Heading2 className="text-pretty text-headings">
+              Technology that fits your business.
+            </Heading2>
+          </div>
           <div className="mt-10 grid gap-6 md:grid-cols-3">
             {options.map((opt) => (
               <Card
