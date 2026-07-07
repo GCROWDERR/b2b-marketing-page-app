@@ -21,10 +21,10 @@ function EnterprisePartnersHero() {
       <EyebrowLg as="p" className="sr-only">
         Enterprise partnerships
       </EyebrowLg>
-      <Heading1 className="max-w-[599px] leading-[1.2] tracking-tight text-white">
+      <Heading1 className="max-w-[778px] leading-[1.2] tracking-tight text-white">
         Give your audience exclusive access to Bankrate&apos;s financial marketplace
       </Heading1>
-      <p className={cn("mt-8 max-w-[534px]", marketingHeroBody)}>
+      <p className={cn("mt-8 max-w-[778px]", marketingHeroBody)}>
         From private mortgage auctions to embedded rate tools, Bankrate builds custom
         financial experiences for enterprise partners — at scale.
       </p>
