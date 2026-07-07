@@ -106,13 +106,13 @@ export function MarketingEnterpriseHero() {
           {/* Desktop visual layer */}
           <div className="pointer-events-none absolute inset-0 hidden lg:block" aria-hidden>
             <FlourishSparkle
-              className="left-[42%] top-[14%] w-[60px]"
+              className="left-[42%] top-[14%] z-[3] w-[60px]"
               width={60}
               height={76}
             />
-            <DownPaymentCard className="absolute left-[51.5%] top-[14.2%] z-10" />
+            <DownPaymentCard className="absolute left-[51.5%] top-[14.2%] z-[1]" />
 
-            <div className="absolute left-[47.8%] top-[1.2%] h-[698px] w-[646px] max-w-[48%] overflow-hidden">
+            <div className="absolute left-[47.8%] top-[1.2%] z-[2] h-[698px] w-[646px] max-w-[48%] overflow-hidden">
               <img
                 src={ENTERPRISE_IMG.heroPortrait}
                 alt=""
@@ -120,19 +120,19 @@ export function MarketingEnterpriseHero() {
               />
             </div>
 
-            <MonthlyPaymentCard className="absolute right-[4.5%] top-[46.9%] z-10" />
+            <MonthlyPaymentCard className="absolute right-[4.5%] top-[46.9%] z-[3]" />
           </div>
 
           {/* Mobile / tablet visual */}
           <div className="relative z-[1] mt-4 px-6 pb-8 lg:hidden">
             <div className="relative mx-auto h-[360px] max-w-[420px] overflow-hidden rounded-2xl sm:h-[420px]">
+              <DownPaymentCard className="absolute left-3 top-4 z-[1] scale-90 sm:scale-100" />
+              <MonthlyPaymentCard className="absolute bottom-6 right-3 z-[3] scale-90 sm:scale-100" />
               <img
                 src={ENTERPRISE_IMG.heroPortrait}
                 alt=""
-                className="absolute inset-0 size-full object-cover object-[center_20%]"
+                className="absolute inset-0 z-[2] size-full object-cover object-[center_20%]"
               />
-              <DownPaymentCard className="absolute left-3 top-4 scale-90 sm:scale-100" />
-              <MonthlyPaymentCard className="absolute bottom-6 right-3 scale-90 sm:scale-100" />
             </div>
           </div>
         </div>
